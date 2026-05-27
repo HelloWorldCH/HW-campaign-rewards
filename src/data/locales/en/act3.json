@@ -1,0 +1,99 @@
+{
+  "Jungle Ruins": {
+    "act": "Act 3",
+    "actNumber": 3,
+    "rewards": [
+      {
+        "type": "passive",
+        "value": "+2 Passive Skill Points",
+        "source": "Defeat Mighty Silverfist",
+        "description": "Optional boss in the Jungle Ruins",
+        "priority": "essential",
+        "icon": "📖",
+        "id": "Jungle_Ruins_0"
+      }
+    ]
+  },
+  "The Azak Bog": {
+    "act": "Act 3",
+    "actNumber": 3,
+    "rewards": [
+      {
+        "type": "spirit",
+        "value": "+30 Spirit",
+        "source": "Defeat Ignagduk, The Bog Witch",
+        "description": "Optional boss in The Azak Bog",
+        "priority": "essential",
+        "icon": "👻",
+        "id": "The_Azak_Bog_0"
+      }
+    ]
+  },
+  "The Venom Crypts": {
+    "act": "Act 3",
+    "actNumber": 3,
+    "rewards": [
+      {
+        "type": "choice",
+        "value": "Choice: +25% Stun Threshold / +30% Ailment Threshold / +25% Mana Regen",
+        "source": "Deliver Venom Vial to Servi",
+        "description": "Permanent choice — cannot be changed!",
+        "priority": "recommended",
+        "icon": "⚖️",
+        "swappable": false,
+        "options": [
+          "+25% Stun Threshold",
+          "+30% Elemental Ailment Threshold",
+          "+25% Mana Regeneration"
+        ],
+        "id": "The_Venom_Crypts_0"
+      }
+    ]
+  },
+  "Jiquani's Machinarium": {
+    "act": "Act 3",
+    "actNumber": 3,
+    "rewards": [
+      {
+        "type": "resistance",
+        "element": "fire",
+        "value": "+10% Fire Resistance",
+        "source": "Defeat Blackjaw, The Remnant",
+        "description": "Optional boss in the Machinarium",
+        "priority": "essential",
+        "icon": "🔥",
+        "id": "Jiquani's_Machinarium_0"
+      }
+    ]
+  },
+  "The Molten Vault": {
+    "act": "Act 3",
+    "actNumber": 3,
+    "rewards": [
+      {
+        "type": "utility",
+        "value": "Unlock Reforging Bench",
+        "source": "Defeat Mektul, talk to Oswald",
+        "description": "Lets you reforge item modifiers",
+        "priority": "recommended",
+        "icon": "🔨",
+        "id": "The_Molten_Vault_0"
+      }
+    ]
+  },
+  "Aggorat": {
+    "act": "Act 3",
+    "actNumber": 3,
+    "rewards": [
+      {
+        "type": "passive",
+        "value": "+2 Passive Skill Points",
+        "source": "Sacrifice Heart at the Altar",
+        "description": "Use the Sacrificial Heart on the altar",
+        "priority": "essential",
+        "icon": "📖",
+        "id": "Aggorat_0"
+      }
+    ]
+  }
+}

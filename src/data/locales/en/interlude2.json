@@ -1,0 +1,51 @@
+{
+  "The Khari Crossing": {
+    "act": "Interlude 2",
+    "actNumber": 6,
+    "rewards": [
+      {
+        "type": "life",
+        "value": "+5% Maximum Life",
+        "source": "Skullmaw Stairway Shrine (Molten One's Gift)",
+        "description": "Find the Skullmaw Stairway sub-area and activate the shrine",
+        "priority": "essential",
+        "icon": "❤️",
+        "id": "The_Khari_Crossing_0"
+      },
+      {
+        "type": "passive",
+        "value": "+2 Passive Skill Points",
+        "source": "Defeat Akthi & Anundr (Clearing the Way quest)",
+        "description": "Speak to Risu in Khari Bazaar first to start the quest",
+        "priority": "essential",
+        "icon": "📖",
+        "id": "The_Khari_Crossing_1"
+      }
+    ]
+  },
+  "Qimah": {
+    "act": "Interlude 2",
+    "actNumber": 6,
+    "rewards": [
+      {
+        "type": "choice",
+        "value": "Seven Pillars Choice (7 options)",
+        "source": "Interact with the Seven Pillars",
+        "description": "Swappable — you can return to change your choice anytime",
+        "priority": "recommended",
+        "icon": "⚖️",
+        "swappable": true,
+        "options": [
+          "+5 to all Attributes",
+          "+5% to all Elemental Resistances",
+          "Increased Movement Speed",
+          "Increased Cooldown Recovery",
+          "Increased Item Rarity",
+          "Increased Item Quantity",
+          "Increased Experience Gain"
+        ],
+        "id": "Qimah_0"
+      }
+    ]
+  }
+}

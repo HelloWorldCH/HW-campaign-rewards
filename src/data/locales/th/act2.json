@@ -1,0 +1,68 @@
+{
+  "Keth": {
+    "act": "Act 2",
+    "actNumber": 2,
+    "rewards": [
+      {
+        "type": "passive",
+        "value": "+2 Passive Skill Points",
+        "source": "Defeat Kabala, Constrictor Queen",
+        "description": "Located in the Venom Pit area of Keth",
+        "priority": "essential",
+        "icon": "📖",
+        "id": "Keth_0"
+      }
+    ]
+  },
+  "Valley of the Titans": {
+    "act": "Act 2",
+    "actNumber": 2,
+    "rewards": [
+      {
+        "type": "choice",
+        "value": "Choice: +30% Charm Charges OR +15% Mana Recovery from Flasks",
+        "source": "Place Kabala & Sun Clan Relics at Altar",
+        "description": "Swappable — you can return to change your choice later",
+        "priority": "recommended",
+        "icon": "⚖️",
+        "swappable": true,
+        "options": [
+          "+30% Charm Charges",
+          "+15% Mana Recovery from Flasks"
+        ],
+        "id": "Valley_of_the_Titans_0"
+      }
+    ]
+  },
+  "Deshar": {
+    "act": "Act 2",
+    "actNumber": 2,
+    "rewards": [
+      {
+        "type": "passive",
+        "value": "+2 Passive Skill Points",
+        "source": "Deliver Final Letter to Shambrin",
+        "description": "Find the letter to start the Tradition's Toll quest",
+        "priority": "essential",
+        "icon": "📖",
+        "id": "Deshar_0"
+      }
+    ]
+  },
+  "Spires of Deshar": {
+    "act": "Act 2",
+    "actNumber": 2,
+    "rewards": [
+      {
+        "type": "resistance",
+        "element": "lightning",
+        "value": "+10% Lightning Resistance",
+        "source": "Sisters of Garukhan Shrine",
+        "description": "Find and interact with the shrine",
+        "priority": "essential",
+        "icon": "⚡",
+        "id": "Spires_of_Deshar_0"
+      }
+    ]
+  }
+}

@@ -28,6 +28,7 @@ const elements = {
   btnMinimize: document.getElementById('btnMinimize'),
   btnClose: document.getElementById('btnClose'),
   // Settings
+  settingLanguage: document.getElementById('settingLanguage'),
   settingLogPath: document.getElementById('settingLogPath'),
   btnBrowseLog: document.getElementById('btnBrowseLog'),
   settingHotkey: document.getElementById('settingHotkey'),
@@ -73,6 +74,7 @@ async function init() {
 
 // ─── Settings ───────────────────────────────────────────────────────────────
 function applySettings(settings) {
+  elements.settingLanguage.value = settings.language || 'en';
   elements.settingLogPath.value = settings.clientLogPath || '';
   elements.settingHotkey.value = settings.hotkey || 'F12';
   elements.settingOpacity.value = (settings.opacity || 0.9) * 100;
@@ -115,6 +117,7 @@ function setupEventListeners() {
 
   elements.btnSaveSettings.addEventListener('click', async () => {
     const updates = {
+      language: elements.settingLanguage.value,
       clientLogPath: elements.settingLogPath.value,
       hotkey: elements.settingHotkey.value,
       opacity: elements.settingOpacity.value / 100,
@@ -210,6 +213,30 @@ function setupIPCListeners() {
   api.onError((error) => {
     updateStatus('error', error);
   });
+
+  if (api.onLanguageChanged) {
+    api.onLanguageChanged(async () => {
+      allAreas = await api.getAllAreas();
+      
+      const select = elements.testAreaSelect;
+      select.innerHTML = '<option value="">Select area to test...</option>';
+      populateTestDropdown(allAreas);
+      
+      if (currentArea && currentArea.area) {
+        const areaData = await api.getAreaRewards(currentArea.area);
+        if (areaData) {
+          currentArea.rewards = areaData;
+          updateAreaDisplay(currentArea);
+        }
+      }
+      
+      if (currentView === 'allRewards') {
+        const activeFilterBtn = document.querySelector('.filter-btn.active');
+        const filterVal = activeFilterBtn ? activeFilterBtn.dataset.filter : 'all';
+        renderAllRewards(allAreas, filterVal);
+      }
+    });
+  }
 
   // Listen for tray menu commands
   window.poeOverlay && window.poeOverlay.onAreaChange && (() => {

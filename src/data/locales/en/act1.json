@@ -1,0 +1,336 @@
+{
+  "The Riverbank": {
+    "act": "Act 1",
+    "actNumber": 1,
+    "rewards": [
+      {
+        "type": "supportgem",
+        "value": "Uncut Support Gem Lv.1",
+        "source": "Defeat the Bloated Miller",
+        "description": "Optional boss",
+        "priority": "essential",
+        "icon": "📖",
+        "id": "The_Riverbank_0"
+      }
+    ]
+  },
+  "Clearfell": {
+    "act": "Act 1",
+    "actNumber": 1,
+    "rewards": [
+      {
+        "type": "resistance",
+        "element": "cold",
+        "value": "+10% Cold Resistance",
+        "source": "Defeat Beira of the Rotten Pack",
+        "description": "BOSS - Beira of the Rotten Pack",
+        "priority": "essential",
+        "icon": "❄️",
+        "id": "Clearfell_0"
+      },
+      {
+        "type": "gem",
+        "value": "Uncut Skill Gem (Level 1)",
+        "source": "Mysterious Campsite",
+        "description": "Talk to mysterious man in the campsite",
+        "priority": "recommended",
+        "icon": "GEM",
+        "id": "Clearfell_1"
+      }
+    ]
+  },
+  "Mud Burrow": {
+    "act": "Act 1",
+    "actNumber": 1,
+    "rewards": [
+      {
+        "type": "gem",
+        "value": "Uncut Skill Gem (Level 2)",
+        "source": "Defeat The Devourer",
+        "description": "Boss Drop",
+        "priority": "recommended",
+        "icon": "GEM",
+        "id": "Mud_Burrow_0"
+      },
+      {
+        "type": "gem",
+        "value": "Uncut Support Gem (Level 1), 100 Gold",
+        "source": "Defeat The Devourer",
+        "description": "Quest Reward",
+        "priority": "recommended",
+        "icon": "GEM",
+        "id": "Mud_Burrow_1"
+      }
+    ]
+  },
+  "The Grelwood": {
+    "act": "Act 1",
+    "actNumber": 1,
+    "rewards": [
+      {
+        "type": "gem",
+        "value": "Uncut Skill Gem (Level 2)",
+        "source": "Defeat The Brambleghast",
+        "description": "BOSS - The Brambleghast",
+        "priority": "recommended",
+        "icon": "GEM",
+        "id": "The_Grelwood_0"
+      },
+      {
+        "type": "flask",
+        "value": "Medium Life and Medium Mana Flask",
+        "source": "Aregane's Hut",
+        "description": "Aregane's Hut",
+        "priority": "recommended",
+        "icon": "🧪",
+        "id": "The_Grelwood_1"
+      },
+      {
+        "type": "gem",
+        "value": "Uncut Support Gem (Level 1)",
+        "source": "Slay Areagne",
+        "description": "Slay Areagne",
+        "priority": "recommended",
+        "icon": "GEM",
+        "id": "The_Grelwood_2"
+      }
+    ]
+  },
+  "The Red Vale": {
+    "act": "Act 1",
+    "actNumber": 1,
+    "rewards": [
+      {
+        "type": "gem",
+        "value": "Uncut Skill Gem (Level 3)",
+        "source": "Defeat The Rust King",
+        "description": "BOSS - The Rust King",
+        "priority": "recommended",
+        "icon": "GEM",
+        "id": "The_Red_Vale_0"
+      }
+    ]
+  },
+  "The Grim Tangle": {
+    "act": "Act 1",
+    "actNumber": 1,
+    "rewards": [
+      {
+        "type": "gem",
+        "value": "Uncut Support Gem (Level 1)",
+        "source": "Defeat The Rotten Druid",
+        "description": "BOSS - The Rotten Druid",
+        "priority": "recommended",
+        "icon": "GEM",
+        "id": "The_Grim_Tangle_0"
+      }
+    ]
+  },
+  "Cemetery of the Eternals": {
+    "act": "Act 1",
+    "actNumber": 1,
+    "rewards": [
+      {
+        "type": "gem",
+        "value": "Uncut Skill Gem (Level 3)",
+        "source": "Defeat Lachlann of Endless Lament",
+        "description": "BOSS - Lachlann of Endless Lament",
+        "priority": "recommended",
+        "icon": "GEM",
+        "id": "Cemetery_of_the_Eternals_0"
+      },
+      {
+        "type": "item",
+        "value": "Normal Rarity Ring",
+        "source": "Sarcophagus beside Grieving Epitaph",
+        "description": "Sarcophagus beside Grieving Epitaph",
+        "priority": "recommended",
+        "icon": "💍",
+        "id": "Cemetery_of_the_Eternals_1"
+      }
+    ]
+  },
+  "Tomb of the Consort": {
+    "act": "Act 1",
+    "actNumber": 1,
+    "rewards": [
+      {
+        "type": "gem",
+        "value": "Uncut Support Gem (Level 1)",
+        "source": "Slay the Eternal Knight",
+        "description": "Haunted Treasure",
+        "priority": "recommended",
+        "icon": "GEM",
+        "id": "Tomb_of_the_Consort_0"
+      }
+    ]
+  },
+  "Hunting Grounds": {
+    "act": "Act 1",
+    "actNumber": 1,
+    "rewards": [
+      {
+        "type": "passive",
+        "value": "Book of Specialisation (+2 Weapon Set Skill Points)",
+        "source": "Defeat The Crowbell",
+        "description": "BOSS - The Crowbell",
+        "priority": "essential",
+        "icon": "📖",
+        "id": "Hunting_Grounds_0"
+      },
+      {
+        "type": "gem",
+        "value": "Uncut Skill Gem (Level 4)",
+        "source": "Complete Ritual Altar",
+        "description": "Complete Ritual Altar",
+        "priority": "recommended",
+        "icon": "GEM",
+        "id": "Hunting_Grounds_1"
+      }
+    ]
+  },
+  "Dryadic Ritual": {
+    "act": "Act 1",
+    "actNumber": 1,
+    "rewards": [
+      {
+        "type": "gem",
+        "value": "Uncut Support Gem (Level 1)",
+        "source": "Dryadic Ritual",
+        "description": "Dryadic Ritual",
+        "priority": "recommended",
+        "icon": "GEM",
+        "id": "Dryadic_Ritual_0"
+      }
+    ]
+  },
+  "Freythorn": {
+    "act": "Act 1",
+    "actNumber": 1,
+    "rewards": [
+      {
+        "type": "spirit",
+        "value": "+30 Maximum Spirit",
+        "source": "Defeat The King in the Mists",
+        "description": "BOSS - The King in the Mists",
+        "priority": "essential",
+        "icon": "👻",
+        "id": "Freythorn_0"
+      },
+      {
+        "type": "gem",
+        "value": "Uncut Spirit Gem (Level 4)",
+        "source": "Defeat The King in the Mists",
+        "description": "BOSS - The King in the Mists",
+        "priority": "essential",
+        "icon": "GEM",
+        "id": "Freythorn_1"
+      }
+    ]
+  },
+  "Ogham Farmlands": {
+    "act": "Act 1",
+    "actNumber": 1,
+    "rewards": [
+      {
+        "type": "passive",
+        "value": "Book of Specialisation (+2 Weapon Set Skill Points)",
+        "source": "Una's Lute",
+        "description": "Inside Una's Lute Box in her hut",
+        "priority": "essential",
+        "icon": "📖",
+        "id": "Ogham_Farmlands_0"
+      },
+      {
+        "type": "gem",
+        "value": "Uncut Skill Gem (Level 4)",
+        "source": "Crop Circle",
+        "description": "Crop Circle",
+        "priority": "recommended",
+        "icon": "GEM",
+        "id": "Ogham_Farmlands_1"
+      }
+    ]
+  },
+  "Ogham Village": {
+    "act": "Act 1",
+    "actNumber": 1,
+    "rewards": [
+      {
+        "type": "gem",
+        "value": "Uncut Support Gem (Level 1)",
+        "source": "Defeat The Executioner",
+        "description": "BOSS - The Executioner",
+        "priority": "recommended",
+        "icon": "GEM",
+        "id": "Ogham_Village_0"
+      },
+      {
+        "type": "gem",
+        "value": "Uncut Skill Gem (Level 5)",
+        "source": "Quest Reward, Leitis",
+        "description": "Quest Reward, Leitis",
+        "priority": "recommended",
+        "icon": "GEM",
+        "id": "Ogham_Village_1"
+      },
+      {
+        "type": "utility",
+        "value": "Salvage Bench",
+        "source": "Find Renly's Smithing Tools to unlock",
+        "description": "Renly's Workshop",
+        "priority": "recommended",
+        "icon": "🔨",
+        "id": "Ogham_Village_2"
+      },
+      {
+        "type": "currency",
+        "value": "Artificer's Orb",
+        "source": "Blacksmith's Chest behind Renly's Tools",
+        "description": "Renly's Workshop",
+        "priority": "recommended",
+        "icon": "🪙",
+        "id": "Ogham_Village_3"
+      },
+      {
+        "type": "rune",
+        "value": "Blank Lesser Rune",
+        "source": "Blacksmith's Chest behind Renly's Tools",
+        "description": "Can be converted into a Rune of your choice at Renly",
+        "priority": "recommended",
+        "icon": "🪨",
+        "id": "Ogham_Village_4"
+      }
+    ]
+  },
+  "The Manor Ramparts": {
+    "act": "Act 1",
+    "actNumber": 1,
+    "rewards": [
+      {
+        "type": "gem",
+        "value": "Uncut Support Gem (Level 1)",
+        "source": "The Gallows",
+        "description": "Click the rope of the noose holding the hanging man",
+        "priority": "recommended",
+        "icon": "GEM",
+        "id": "The_Manor_Ramparts_0"
+      }
+    ]
+  },
+  "Ogham Manor": {
+    "act": "Act 1",
+    "actNumber": 1,
+    "rewards": [
+      {
+        "type": "life",
+        "value": "+20 Maximum Life",
+        "source": "Defeat Candlemass, the Living Rite",
+        "description": "BOSS - Candlemass, the Living Rite",
+        "priority": "recommended",
+        "icon": "❤️",
+        "id": "Ogham_Manor_0"
+      }
+    ]
+  }
+}

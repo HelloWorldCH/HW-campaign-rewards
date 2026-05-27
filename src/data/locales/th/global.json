@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "game": "Path of Exile 2",
+    "lastUpdated": "2026-05-27",
+    "note": "Early Access - rewards may change with patches"
+  },
+  "summary": {
+    "totalPassivePoints": 24,
+    "totalSpirit": 100,
+    "totalColdRes": 10,
+    "totalLightningRes": 10,
+    "totalFireRes": 10,
+    "totalMaxLife": "+20 flat, +5%",
+    "totalMaxMana": "+5%"
+  }
+}

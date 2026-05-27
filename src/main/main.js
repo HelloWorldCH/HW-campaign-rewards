@@ -57,7 +57,39 @@ process.on('unhandledRejection', (reason) => {
 });
 
 // Campaign data
-const campaignData = require('../data/campaignRewards.json');
+let campaignData = { meta: {}, summary: {}, areas: {} };
+
+function loadCampaignData(language = 'en') {
+  try {
+    const localesPath = path.join(__dirname, '..', 'data', 'locales', language);
+    if (!fs.existsSync(localesPath)) return;
+    
+    // Load global
+    const globalPath = path.join(localesPath, 'global.json');
+    let globalData = { meta: {}, summary: {} };
+    if (fs.existsSync(globalPath)) {
+      globalData = JSON.parse(fs.readFileSync(globalPath, 'utf8'));
+    }
+    
+    let areas = {};
+    const files = fs.readdirSync(localesPath);
+    for (const file of files) {
+      if (file !== 'global.json' && file.endsWith('.json')) {
+        const actAreas = JSON.parse(fs.readFileSync(path.join(localesPath, file), 'utf8'));
+        areas = { ...areas, ...actAreas };
+      }
+    }
+    
+    campaignData = {
+      meta: globalData.meta,
+      summary: globalData.summary,
+      areas: areas
+    };
+    log('INFO', `Loaded campaign data for language: ${language}`);
+  } catch (err) {
+    log('ERROR', 'Error loading campaign data:', err);
+  }
+}
 
 let mainWindow = null;
 let tray = null;
@@ -69,6 +101,8 @@ let isOverlayVisible = true;
 app.whenReady().then(() => {
   log('INFO', 'App ready. Initializing...');
   settings.init(app.getPath('userData'));
+
+  loadCampaignData(settings.get('language') || 'en');
 
   createOverlayWindow();
   createTray();
@@ -376,8 +410,16 @@ function setupIPC() {
   ipcMain.handle('update-settings', (event, updates) => {
     const oldHotkey = settings.get('hotkey');
     const oldLogPath = settings.get('clientLogPath');
+    const oldLanguage = settings.get('language');
 
     settings.update(updates);
+
+    if (updates.language && updates.language !== oldLanguage) {
+      loadCampaignData(updates.language);
+      if (mainWindow && !mainWindow.isDestroyed()) {
+        mainWindow.webContents.send('language-changed');
+      }
+    }
 
     // Re-register hotkey if changed
     if (updates.hotkey && updates.hotkey !== oldHotkey) {

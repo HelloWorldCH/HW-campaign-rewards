@@ -1,0 +1,17 @@
+{
+  "Kingsmarch": {
+    "act": "Finale",
+    "actNumber": 8,
+    "rewards": [
+      {
+        "type": "passive",
+        "value": "+2 Passive Skill Points",
+        "source": "Talk to The Hooded One",
+        "description": "Available after completing all three Interlude acts",
+        "priority": "essential",
+        "icon": "📖",
+        "id": "Kingsmarch_0"
+      }
+    ]
+  }
+}

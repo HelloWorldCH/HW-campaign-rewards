@@ -1,0 +1,17 @@
+{
+  "Wolvenhold": {
+    "act": "Interlude 1",
+    "actNumber": 5,
+    "rewards": [
+      {
+        "type": "passive",
+        "value": "+2 Passive Skill Points",
+        "source": "Defeat Oswin, The Dread Warden",
+        "description": "Optional boss in Wolvenhold",
+        "priority": "essential",
+        "icon": "📖",
+        "id": "Wolvenhold_0"
+      }
+    ]
+  }
+}

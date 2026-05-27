@@ -1,0 +1,106 @@
+{
+  "Isle of Kin": {
+    "act": "Act 4",
+    "actNumber": 4,
+    "rewards": [
+      {
+        "type": "passive",
+        "value": "+2 Passive Skill Points",
+        "source": "Defeat the Blind Beast",
+        "description": "Optional boss on the Isle of Kin",
+        "priority": "essential",
+        "icon": "📖",
+        "id": "Isle_of_Kin_0"
+      }
+    ]
+  },
+  "Journey's End": {
+    "act": "Act 4",
+    "actNumber": 4,
+    "rewards": [
+      {
+        "type": "passive",
+        "value": "+2 Passive Skill Points",
+        "source": "Defeat Omniphobia (Dark Mists Quest)",
+        "description": "Forge Verisium Spikes → free Freya Hartlin → defeat boss",
+        "priority": "essential",
+        "icon": "📖",
+        "id": "Journey's_End_0"
+      }
+    ]
+  },
+  "Trial of the Ancestors": {
+    "act": "Act 4",
+    "actNumber": 4,
+    "rewards": [
+      {
+        "type": "passive",
+        "value": "+2 Passive Skill Points",
+        "source": "Defeat Yama the White, speak to Hinekora",
+        "description": "Complete the Trial and receive Hinekora's Tattoo",
+        "priority": "essential",
+        "icon": "📖",
+        "id": "Trial_of_the_Ancestors_0"
+      }
+    ]
+  },
+  "Halls of the Dead": {
+    "act": "Act 4",
+    "actNumber": 4,
+    "rewards": [
+      {
+        "type": "choice",
+        "value": "Tattoo Choice: +5 Attribute OR +5% Elemental Resistance",
+        "source": "Complete Three Trials (Tawhoa, Tasalio, Ngamahu)",
+        "description": "Permanent tattoo choice per trial",
+        "priority": "recommended",
+        "icon": "🎭",
+        "swappable": false,
+        "options": [
+          "+5 Strength",
+          "+5 Dexterity",
+          "+5 Intelligence",
+          "+5% Fire Resistance",
+          "+5% Cold Resistance",
+          "+5% Lightning Resistance"
+        ],
+        "id": "Halls_of_the_Dead_0"
+      }
+    ]
+  },
+  "Silent Hall": {
+    "act": "Act 4",
+    "actNumber": 4,
+    "rewards": [
+      {
+        "type": "mana",
+        "value": "+5% Maximum Mana",
+        "source": "Activate Jade Coffin",
+        "description": "Eye of Hinekora — interact with the jade coffin",
+        "priority": "recommended",
+        "icon": "💧",
+        "id": "Silent_Hall_0"
+      }
+    ]
+  },
+  "Abandoned Prison": {
+    "act": "Act 4",
+    "actNumber": 4,
+    "rewards": [
+      {
+        "type": "choice",
+        "value": "Choice: +30% Life Recovery OR +30% Mana Recovery from Flasks",
+        "source": "Goddess of Justice Statue",
+        "description": "Swappable — you can return to change your choice later",
+        "priority": "recommended",
+        "icon": "⚖️",
+        "swappable": true,
+        "options": [
+          "+30% Life Recovery from Flasks",
+          "+30% Mana Recovery from Flasks"
+        ],
+        "id": "Abandoned_Prison_0"
+      }
+    ]
+  }
+}

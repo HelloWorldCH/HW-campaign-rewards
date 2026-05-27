@@ -57,6 +57,9 @@ contextBridge.exposeInMainWorld('poeOverlay', {
   onShowSettings: (callback) => {
     ipcRenderer.on('show-settings', () => callback());
   },
+  onLanguageChanged: (callback) => {
+    ipcRenderer.on('language-changed', () => callback());
+  },
 
   // Save UI position inside the game window
   savePosition: (pos) => ipcRenderer.send('save-position', pos),

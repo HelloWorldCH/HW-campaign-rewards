@@ -1,0 +1,32 @@
+{
+  "Kriar Village": {
+    "act": "Interlude 3",
+    "actNumber": 7,
+    "rewards": [
+      {
+        "type": "spirit",
+        "value": "+40 Spirit",
+        "source": "Defeat Lythara, The Wayward Spear",
+        "description": "Optional boss in Kriar Village",
+        "priority": "essential",
+        "icon": "👻",
+        "id": "Kriar_Village_0"
+      }
+    ]
+  },
+  "Howling Caves": {
+    "act": "Interlude 3",
+    "actNumber": 7,
+    "rewards": [
+      {
+        "type": "passive",
+        "value": "+2 Passive Skill Points",
+        "source": "Defeat The Abominable Yeti",
+        "description": "Optional boss in the Howling Caves",
+        "priority": "essential",
+        "icon": "📖",
+        "id": "Howling_Caves_0"
+      }
+    ]
+  }
+}
