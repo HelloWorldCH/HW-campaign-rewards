@@ -1,0 +1,42 @@
+{
+  "name": "hw-poe2-campaign-rewards",
+  "version": "1.0.0",
+  "description": "PoE2 Campaign Rewards Overlay — Shows campaign rewards for the current area in Path of Exile 2",
+  "main": "src/main/main.js",
+  "scripts": {
+    "dev": "electron .",
+    "build": "npx electron-packager . \"PoE2 Campaign Rewards\" --platform=win32 --arch=x64 --icon=assets/icon.png --out=dist --overwrite"
+  },
+  "author": "HW",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "electron": "^35.0.0",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "com.hw.poe2-campaign-rewards",
+    "productName": "PoE2 Campaign Rewards",
+    "win": {
+      "target": [
+        "portable",
+        "nsis"
+      ],
+      "icon": "assets/icon.png"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*"
+    ],
+    "portable": {
+      "artifactName": "PoE2-Campaign-Rewards-Portable.exe"
+    },
+    "nsis": {
+      "oneClick": true,
+      "allowToChangeInstallationDirectory": false,
+      "artifactName": "PoE2-Campaign-Rewards-Setup.exe"
+    }
+  },
+  "dependencies": {
+    "electron-overlay-window": "^4.1.0"
+  }
+}

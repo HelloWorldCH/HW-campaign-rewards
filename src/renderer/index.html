@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PoE2 Campaign Rewards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app" class="overlay-container">
+    <!-- ─── Title Bar (Draggable) ─── -->
+    <header id="titleBar" class="title-bar">
+      <div class="title-bar-left">
+        <div class="title-logo">⚔</div>
+        <h1 class="title-text">Campaign Rewards</h1>
+      </div>
+      <div class="title-bar-right">
+        <button id="btnAllRewards" class="title-btn" title="Browse All Rewards">📋</button>
+        <button id="btnSettings" class="title-btn" title="Settings">⚙️</button>
+        <button id="btnMinimize" class="title-btn" title="Minimize">─</button>
+        <button id="btnClose" class="title-btn btn-close" title="Hide (use hotkey to show)">✕</button>
+      </div>
+    </header>
+
+    <!-- ─── Status Bar ─── -->
+    <div id="statusBar" class="status-bar">
+      <span id="statusDot" class="status-dot"></span>
+      <span id="statusText" class="status-text">Initializing...</span>
+    </div>
+
+    <!-- ─── Current Area Info ─── -->
+    <div id="areaSection" class="area-section hidden">
+      <div class="area-header">
+        <div class="area-badge" id="areaBadge">Act 1</div>
+        <h2 class="area-name" id="areaName">—</h2>
+      </div>
+    </div>
+
+    <!-- ─── Main Content (Rewards / All / Settings) ─── -->
+    <main id="mainContent" class="main-content">
+      
+      <!-- Rewards View -->
+      <div id="rewardsView" class="view active">
+        <div id="rewardsContainer" class="rewards-container">
+          <div id="noRewards" class="no-rewards">
+            <div class="no-rewards-icon">🗺️</div>
+            <p>Waiting for area change...</p>
+            <p class="no-rewards-hint">Enter a zone in PoE2 to see rewards</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- All Rewards View -->
+      <div id="allRewardsView" class="view">
+        <div class="all-rewards-header">
+          <h2>All Campaign Rewards</h2>
+          <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="1">Act 1</button>
+            <button class="filter-btn" data-filter="2">Act 2</button>
+            <button class="filter-btn" data-filter="3">Act 3</button>
+            <button class="filter-btn" data-filter="4">Act 4</button>
+            <button class="filter-btn" data-filter="5">Int 1</button>
+            <button class="filter-btn" data-filter="6">Int 2</button>
+            <button class="filter-btn" data-filter="7">Int 3</button>
+          </div>
+        </div>
+        <div id="allRewardsContainer" class="rewards-container scrollable"></div>
+      </div>
+
+      <!-- Settings View -->
+      <div id="settingsView" class="view">
+        <div class="settings-panel">
+          <h2 class="settings-title">⚙️ Settings</h2>
+
+          <div class="setting-group">
+            <label class="setting-label">Client.txt Path</label>
+            <div class="setting-row">
+              <input type="text" id="settingLogPath" class="setting-input" placeholder="Path to Client.txt">
+              <button id="btnBrowseLog" class="setting-btn">📂</button>
+            </div>
+          </div>
+
+          <div class="setting-group">
+            <label class="setting-label">Toggle Hotkey</label>
+            <select id="settingHotkey" class="setting-select">
+              <option value="F12">F12</option>
+              <option value="F11">F11</option>
+              <option value="F10">F10</option>
+              <option value="F9">F9</option>
+              <option value="F8">F8</option>
+              <option value="F7">F7</option>
+              <option value="F6">F6</option>
+            </select>
+          </div>
+
+          <div class="setting-group">
+            <label class="setting-label">Overlay Opacity: <span id="opacityValue">90%</span></label>
+            <input type="range" id="settingOpacity" class="setting-range" min="30" max="100" value="90">
+          </div>
+
+          <div class="setting-group">
+            <label class="setting-checkbox-label">
+              <input type="checkbox" id="settingShowOnChange" checked>
+              <span>Show overlay on area change</span>
+            </label>
+          </div>
+
+          <div class="setting-group">
+            <button id="btnSaveSettings" class="btn-primary">💾 Save Settings</button>
+          </div>
+
+          <div class="settings-group">
+            <h3>Character Profiles</h3>
+            <div class="setting-item">
+              <label>Current Character</label>
+              <select id="profileSelect" class="setting-input"></select>
+            </div>
+            <div class="setting-item">
+              <label>Add Character</label>
+              <div style="display:flex; gap:8px;">
+                <input type="text" id="newProfileName" class="setting-input" placeholder="Character Name">
+                <button id="btnAddProfile" class="btn btn-primary" style="flex-shrink:0;">Add</button>
+              </div>
+            </div>
+            <div class="setting-item">
+              <button id="btnDeleteProfile" class="btn btn-secondary" style="width:100%; border-color:var(--fire-res);">Delete Current Profile</button>
+            </div>
+          </div>
+
+          <div class="settings-group">
+            <h3 class="settings-subtitle">🧪 Test Area Detection</h3>
+            <div class="setting-row">
+              <select id="testAreaSelect" class="setting-select test-select">
+                <option value="">Select area to test...</option>
+              </select>
+              <button id="btnTestArea" class="setting-btn">▶</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ─── Summary Footer ─── -->
+    <footer id="summaryFooter" class="summary-footer">
+      <div class="summary-item" title="Total Passive Points from Campaign">
+        <span class="summary-icon">📖</span>
+        <span class="summary-value">24 pts</span>
+      </div>
+      <div class="summary-item" title="Total Spirit">
+        <span class="summary-icon">👻</span>
+        <span class="summary-value">100</span>
+      </div>
+      <div class="summary-item" title="Total Resistance">
+        <span class="summary-icon">🛡️</span>
+        <span class="summary-value">+30%</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
