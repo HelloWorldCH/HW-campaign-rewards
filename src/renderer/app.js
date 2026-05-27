@@ -7,9 +7,14 @@ const api = window.poeOverlay;
 // ─── DOM Elements ───────────────────────────────────────────────────────────
 const elements = {
   app: document.getElementById('app'),
-  // Status
+  // Status & Header
+  activeCharacterIndicator: document.getElementById('activeCharacterIndicator'),
   statusDot: document.getElementById('statusDot'),
   statusText: document.getElementById('statusText'),
+  // Character Select Banner
+  charSelectBanner: document.getElementById('charSelectBanner'),
+  charSelectActiveName: document.getElementById('charSelectActiveName'),
+  charSelectQuickSwitch: document.getElementById('charSelectQuickSwitch'),
   // Area
   areaSection: document.getElementById('areaSection'),
   areaBadge: document.getElementById('areaBadge'),
@@ -39,6 +44,8 @@ const elements = {
   testAreaSelect: document.getElementById('testAreaSelect'),
   btnTestArea: document.getElementById('btnTestArea'),
   // Profiles
+  importAccountName: document.getElementById('importAccountName'),
+  btnImportCharacters: document.getElementById('btnImportCharacters'),
   profileSelect: document.getElementById('profileSelect'),
   newProfileName: document.getElementById('newProfileName'),
   btnAddProfile: document.getElementById('btnAddProfile'),
@@ -50,6 +57,7 @@ let currentView = 'rewards';
 let currentArea = null;
 let allAreas = [];
 let completedRewards = [];
+let isOnCharSelectScreen = false;
 
 // ─── Initialize ─────────────────────────────────────────────────────────────
 async function init() {
@@ -152,6 +160,32 @@ function setupEventListeners() {
     showToast('Profile Switched');
   });
 
+  elements.btnImportCharacters.addEventListener('click', async () => {
+    const accountName = elements.importAccountName.value.trim();
+    if (!accountName) {
+      showToast('Please enter an account name');
+      return;
+    }
+    
+    const originalText = elements.btnImportCharacters.textContent;
+    elements.btnImportCharacters.textContent = '...';
+    elements.btnImportCharacters.disabled = true;
+    
+    try {
+      if (api.importCharacters) {
+        await api.importCharacters(accountName);
+        await loadProfiles();
+        showToast('Characters Imported');
+        elements.importAccountName.value = '';
+      }
+    } catch (err) {
+      showToast(err.message || 'Error importing characters');
+    } finally {
+      elements.btnImportCharacters.textContent = originalText;
+      elements.btnImportCharacters.disabled = false;
+    }
+  });
+
   elements.btnAddProfile.addEventListener('click', async () => {
     const name = elements.newProfileName.value.trim();
     if (!name) return;
@@ -189,6 +223,10 @@ async function loadProfiles() {
   const activeProfile = profiles[activeProfileId];
   completedRewards = activeProfile ? (activeProfile.completedRewards || []) : [];
   
+  if (activeProfile && elements.activeCharacterIndicator) {
+    elements.activeCharacterIndicator.textContent = `👤 ${activeProfile.name}`;
+  }
+
   // Re-render current views if data is loaded
   if (allAreas.length > 0) {
     if (currentArea) updateAreaDisplay(currentArea);
@@ -200,10 +238,63 @@ async function loadProfiles() {
 function setupIPCListeners() {
   api.onAreaChange((data) => {
     currentArea = data;
+    isOnCharSelectScreen = false;
+    elements.charSelectBanner.classList.add('hidden');
     updateAreaDisplay(data);
     if (currentView !== 'rewards') {
       switchView('rewards');
     }
+  });
+
+  if (api.onCharacterSelectScreen) {
+    api.onCharacterSelectScreen(async () => {
+      isOnCharSelectScreen = true;
+      
+      // Show the banner
+      elements.charSelectBanner.classList.remove('hidden');
+      
+      // Populate quick-switch dropdown
+      const { profiles, activeProfileId } = await api.getProfiles();
+      const activeProfile = profiles[activeProfileId];
+      elements.charSelectActiveName.textContent = activeProfile ? activeProfile.name : '—';
+      
+      const qs = elements.charSelectQuickSwitch;
+      qs.innerHTML = '';
+      Object.values(profiles).forEach(p => {
+        const opt = document.createElement('option');
+        opt.value = p.id;
+        opt.textContent = p.name;
+        if (p.id === activeProfileId) opt.selected = true;
+        qs.appendChild(opt);
+      });
+      
+      // Update area display to show char select
+      elements.areaSection.classList.remove('hidden');
+      elements.areaName.textContent = 'Character Selection';
+      elements.areaBadge.textContent = '🎭';
+      elements.areaBadge.style.display = '';
+      
+      // Render a message in rewards view
+      elements.rewardsContainer.innerHTML = `
+        <div class="no-area-rewards">
+          <div class="no-area-rewards-icon">🎭</div>
+          <p>You are on the character selection screen</p>
+          <p class="hint">Switch character above if needed</p>
+        </div>
+      `;
+    });
+  }
+
+  // Quick-switch handler
+  elements.charSelectQuickSwitch.addEventListener('change', async (e) => {
+    const profileId = e.target.value;
+    await api.switchProfile(profileId);
+    await loadProfiles();
+    
+    const { profiles } = await api.getProfiles();
+    const activeProfile = profiles[profileId];
+    elements.charSelectActiveName.textContent = activeProfile ? activeProfile.name : '—';
+    showToast('Character Switched');
   });
 
   api.onWatcherStatus((status) => {

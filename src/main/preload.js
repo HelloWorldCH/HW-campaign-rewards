@@ -6,6 +6,11 @@ contextBridge.exposeInMainWorld('poeOverlay', {
     ipcRenderer.on('area-change', (event, data) => callback(data));
   },
 
+  // Character selection screen listener
+  onCharacterSelectScreen: (callback) => {
+    ipcRenderer.on('character-select-screen', (event, data) => callback(data));
+  },
+
   // Watcher status listener
   onWatcherStatus: (callback) => {
     ipcRenderer.on('watcher-status', (event, status) => callback(status));
@@ -30,6 +35,7 @@ contextBridge.exposeInMainWorld('poeOverlay', {
   createProfile: (name) => ipcRenderer.invoke('create-profile', name),
   switchProfile: (id) => ipcRenderer.invoke('switch-profile', id),
   deleteProfile: (id) => ipcRenderer.invoke('delete-profile', id),
+  importCharacters: (accountName) => ipcRenderer.invoke('import-characters', accountName),
 
   // Window controls
   toggleCompact: () => ipcRenderer.invoke('toggle-compact'),

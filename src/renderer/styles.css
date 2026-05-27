@@ -223,6 +223,77 @@ html, body {
   color: var(--text-dim);
 }
 
+/* ─── Character Select Banner ────────────────────────────────────────────── */
+.char-select-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: linear-gradient(135deg, rgba(187, 134, 252, 0.12), rgba(91, 141, 239, 0.08));
+  border-bottom: 1px solid rgba(187, 134, 252, 0.25);
+  animation: charSelectPulse 2.5s ease-in-out infinite, fadeSlideIn 0.4s ease-out;
+  flex-shrink: 0;
+}
+
+@keyframes charSelectPulse {
+  0%, 100% { border-color: rgba(187, 134, 252, 0.25); background: linear-gradient(135deg, rgba(187, 134, 252, 0.12), rgba(91, 141, 239, 0.08)); }
+  50% { border-color: rgba(187, 134, 252, 0.45); background: linear-gradient(135deg, rgba(187, 134, 252, 0.18), rgba(91, 141, 239, 0.14)); }
+}
+
+.char-select-banner-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+  animation: float 3s ease-in-out infinite;
+}
+
+.char-select-banner-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.char-select-banner-title {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--choice-purple);
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.char-select-banner-subtitle {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.char-select-banner-subtitle strong {
+  color: var(--gold);
+}
+
+.char-select-quick-switch {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(187, 134, 252, 0.2);
+  border-radius: 5px;
+  padding: 5px 8px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 11px;
+  outline: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.char-select-quick-switch:focus {
+  border-color: var(--choice-purple);
+  box-shadow: 0 0 10px rgba(187, 134, 252, 0.15);
+}
+
+.char-select-quick-switch option {
+  background: #1a1425;
+  color: var(--text-primary);
+}
+
 /* ─── Area Section ───────────────────────────────────────────────────────── */
 .area-section {
   padding: 10px 12px;

@@ -12,6 +12,12 @@ class LogWatcher extends EventEmitter {
     this.isWatching = false;
     this.pollInterval = null;
     this.AREA_PATTERN = /\[SCENE\] Set Source \[([^\]]+)\]/;
+    this.LOGIN_PATTERN = /\[SCENE\] Set Source \[Login\]/i;
+    this.CHAR_SELECT_PATTERNS = [
+      /Entering character selection/i,
+      /\[DEBUG Client \d+\] Client-Safe Instance ID/i,
+      /Abnormal disconnect/i
+    ];
   }
 
   /**
@@ -124,10 +130,28 @@ class LogWatcher extends EventEmitter {
   _processLine(line) {
     if (!line) return;
 
+    const timestamp = line.substring(0, 19); // YYYY/MM/DD HH:MM:SS
+
+    // Check for Login / character selection screen
+    if (this.LOGIN_PATTERN.test(line)) {
+      console.log(`[LogWatcher] Character selection screen detected at ${timestamp}`);
+      this.emit('characterSelect', { timestamp, raw: line });
+      return;
+    }
+
+    // Check for other character selection indicators
+    for (const pattern of this.CHAR_SELECT_PATTERNS) {
+      if (pattern.test(line)) {
+        console.log(`[LogWatcher] Character select indicator: "${line.substring(0, 80)}"`);
+        this.emit('characterSelect', { timestamp, raw: line });
+        return;
+      }
+    }
+
+    // Normal area change
     const match = line.match(this.AREA_PATTERN);
     if (match) {
       const areaName = match[1];
-      const timestamp = line.substring(0, 19); // YYYY/MM/DD HH:MM:SS
 
       console.log(`[LogWatcher] Area change detected: "${areaName}" at ${timestamp}`);
 

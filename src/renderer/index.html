@@ -16,6 +16,7 @@
       <div class="title-bar-left">
         <div class="title-logo">⚔</div>
         <h1 class="title-text">Campaign Rewards</h1>
+        <div class="active-character-indicator" id="activeCharacterIndicator" style="margin-left: 12px; font-size: 13px; color: var(--text-dim); background: rgba(255,255,255,0.05); padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">👤 Loading...</div>
       </div>
       <div class="title-bar-right">
         <button id="btnAllRewards" class="title-btn" title="Browse All Rewards">📋</button>
@@ -29,6 +30,18 @@
     <div id="statusBar" class="status-bar">
       <span id="statusDot" class="status-dot"></span>
       <span id="statusText" class="status-text">Initializing...</span>
+    </div>
+
+    <!-- ─── Character Select Banner ─── -->
+    <div id="charSelectBanner" class="char-select-banner hidden">
+      <div class="char-select-banner-icon">🎭</div>
+      <div class="char-select-banner-content">
+        <div class="char-select-banner-title">Character Selection Screen</div>
+        <div class="char-select-banner-subtitle">
+          Active: <strong id="charSelectActiveName">—</strong>
+        </div>
+        <select id="charSelectQuickSwitch" class="char-select-quick-switch"></select>
+      </div>
     </div>
 
     <!-- ─── Current Area Info ─── -->
@@ -124,11 +137,19 @@
           <div class="settings-group">
             <h3>Character Profiles</h3>
             <div class="setting-item">
+              <label>Import from PoE Account</label>
+              <div style="display:flex; gap:8px;">
+                <input type="text" id="importAccountName" class="setting-input" placeholder="Account Name">
+                <button id="btnImportCharacters" class="btn btn-primary" style="flex-shrink:0;">Import</button>
+              </div>
+              <small style="color:var(--text-dim); font-size:11px; margin-top:4px; display:block;">Profile must be Public.</small>
+            </div>
+            <div class="setting-item" style="margin-top:16px;">
               <label>Current Character</label>
               <select id="profileSelect" class="setting-input"></select>
             </div>
             <div class="setting-item">
-              <label>Add Character</label>
+              <label>Manual Add Character</label>
               <div style="display:flex; gap:8px;">
                 <input type="text" id="newProfileName" class="setting-input" placeholder="Character Name">
                 <button id="btnAddProfile" class="btn btn-primary" style="flex-shrink:0;">Add</button>

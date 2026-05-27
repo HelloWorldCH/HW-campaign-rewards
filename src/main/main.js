@@ -398,6 +398,22 @@ function startLogWatcher() {
     }
   });
 
+  logWatcher.on('characterSelect', (data) => {
+    log('INFO', 'Character selection screen detected');
+    if (mainWindow && !mainWindow.isDestroyed()) {
+      mainWindow.webContents.send('character-select-screen', data);
+
+      // Show overlay so user can switch profile
+      if (!isOverlayVisible && settings.get('showOnAreaChange')) {
+        mainWindow.showInactive();
+        mainWindow.setAlwaysOnTop(true, 'screen-saver');
+        isOverlayVisible = true;
+        updateTrayMenu();
+        log('INFO', 'Overlay auto-shown for character select screen.');
+      }
+    }
+  });
+
   logWatcher.start();
 }
 
@@ -505,6 +521,62 @@ function setupIPC() {
     settings.set('activeProfileId', newActive);
     
     return { profiles, activeProfileId: newActive };
+  });
+
+  ipcMain.handle('import-characters', async (event, accountName) => {
+    try {
+      const url = `https://www.pathofexile.com/character-window/get-characters?accountName=${encodeURIComponent(accountName)}`;
+      // Fetch data
+      const response = await fetch(url);
+      if (!response.ok) {
+        if (response.status === 403) throw new Error('Profile is private');
+        if (response.status === 404) throw new Error('Account not found');
+        throw new Error(`API Error: ${response.status}`);
+      }
+      const data = await response.json();
+      if (!Array.isArray(data)) {
+        throw new Error('Invalid API response');
+      }
+      
+      const profiles = settings.get('profiles') || {};
+      let anyAdded = false;
+      let firstCharId = null;
+
+      data.forEach(char => {
+        if (!char.name) return;
+        const id = char.name;
+        if (!firstCharId) firstCharId = id;
+        
+        // Preserve existing completed rewards if profile already exists
+        const existingRewards = profiles[id] ? profiles[id].completedRewards : [];
+        const label = `${char.name} (Lv ${char.level} ${char.class})`;
+        
+        profiles[id] = {
+          id,
+          name: label,
+          completedRewards: existingRewards
+        };
+        anyAdded = true;
+      });
+
+      if (!anyAdded) {
+        throw new Error('No characters found for this account');
+      }
+
+      settings.set('profiles', profiles);
+      
+      // Keep active if it exists, otherwise switch to first character
+      let activeId = settings.get('activeProfileId');
+      if (!profiles[activeId]) {
+        activeId = firstCharId;
+        settings.set('activeProfileId', activeId);
+      }
+      
+      return { profiles, activeProfileId: activeId };
+    } catch (err) {
+      log('ERROR', 'import-characters error:', err);
+      throw err;
+    }
   });
 
   ipcMain.handle('toggle-reward-completion', (event, rewardId, completed) => {

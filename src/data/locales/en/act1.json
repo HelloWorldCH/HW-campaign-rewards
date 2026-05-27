@@ -34,7 +34,7 @@
         "source": "Mysterious Campsite",
         "description": "Talk to mysterious man in the campsite",
         "priority": "recommended",
-        "icon": "GEM",
+        "icon": "💎",
         "id": "Clearfell_1"
       }
     ]
@@ -49,7 +49,7 @@
         "source": "Defeat The Devourer",
         "description": "Boss Drop",
         "priority": "recommended",
-        "icon": "GEM",
+        "icon": "💎",
         "id": "Mud_Burrow_0"
       },
       {
@@ -58,7 +58,7 @@
         "source": "Defeat The Devourer",
         "description": "Quest Reward",
         "priority": "recommended",
-        "icon": "GEM",
+        "icon": "💎",
         "id": "Mud_Burrow_1"
       }
     ]
@@ -73,7 +73,7 @@
         "source": "Defeat The Brambleghast",
         "description": "BOSS - The Brambleghast",
         "priority": "recommended",
-        "icon": "GEM",
+        "icon": "💎",
         "id": "The_Grelwood_0"
       },
       {
@@ -91,7 +91,7 @@
         "source": "Slay Areagne",
         "description": "Slay Areagne",
         "priority": "recommended",
-        "icon": "GEM",
+        "icon": "💎",
         "id": "The_Grelwood_2"
       }
     ]
@@ -106,7 +106,7 @@
         "source": "Defeat The Rust King",
         "description": "BOSS - The Rust King",
         "priority": "recommended",
-        "icon": "GEM",
+        "icon": "💎",
         "id": "The_Red_Vale_0"
       }
     ]
@@ -121,7 +121,7 @@
         "source": "Defeat The Rotten Druid",
         "description": "BOSS - The Rotten Druid",
         "priority": "recommended",
-        "icon": "GEM",
+        "icon": "💎",
         "id": "The_Grim_Tangle_0"
       }
     ]
@@ -136,7 +136,7 @@
         "source": "Defeat Lachlann of Endless Lament",
         "description": "BOSS - Lachlann of Endless Lament",
         "priority": "recommended",
-        "icon": "GEM",
+        "icon": "💎",
         "id": "Cemetery_of_the_Eternals_0"
       },
       {
@@ -160,7 +160,7 @@
         "source": "Slay the Eternal Knight",
         "description": "Haunted Treasure",
         "priority": "recommended",
-        "icon": "GEM",
+        "icon": "💎",
         "id": "Tomb_of_the_Consort_0"
       }
     ]
@@ -184,7 +184,7 @@
         "source": "Complete Ritual Altar",
         "description": "Complete Ritual Altar",
         "priority": "recommended",
-        "icon": "GEM",
+        "icon": "💎",
         "id": "Hunting_Grounds_1"
       }
     ]
@@ -199,7 +199,7 @@
         "source": "Dryadic Ritual",
         "description": "Dryadic Ritual",
         "priority": "recommended",
-        "icon": "GEM",
+        "icon": "💎",
         "id": "Dryadic_Ritual_0"
       }
     ]
@@ -223,7 +223,7 @@
         "source": "Defeat The King in the Mists",
         "description": "BOSS - The King in the Mists",
         "priority": "essential",
-        "icon": "GEM",
+        "icon": "💎",
         "id": "Freythorn_1"
       }
     ]
@@ -247,7 +247,7 @@
         "source": "Crop Circle",
         "description": "Crop Circle",
         "priority": "recommended",
-        "icon": "GEM",
+        "icon": "💎",
         "id": "Ogham_Farmlands_1"
       }
     ]
@@ -262,7 +262,7 @@
         "source": "Defeat The Executioner",
         "description": "BOSS - The Executioner",
         "priority": "recommended",
-        "icon": "GEM",
+        "icon": "💎",
         "id": "Ogham_Village_0"
       },
       {
@@ -271,7 +271,7 @@
         "source": "Quest Reward, Leitis",
         "description": "Quest Reward, Leitis",
         "priority": "recommended",
-        "icon": "GEM",
+        "icon": "💎",
         "id": "Ogham_Village_1"
       },
       {
@@ -313,7 +313,7 @@
         "source": "The Gallows",
         "description": "Click the rope of the noose holding the hanging man",
         "priority": "recommended",
-        "icon": "GEM",
+        "icon": "💎",
         "id": "The_Manor_Ramparts_0"
       }
     ]
