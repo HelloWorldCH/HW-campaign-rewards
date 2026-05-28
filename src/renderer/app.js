@@ -19,6 +19,10 @@ const elements = {
   areaSection: document.getElementById('areaSection'),
   areaBadge: document.getElementById('areaBadge'),
   areaName: document.getElementById('areaName'),
+  // Navigator
+  navigatorWidget: document.getElementById('navigatorWidget'),
+  navigatorArrow: document.getElementById('navigatorArrow'),
+  navigatorDistance: document.getElementById('navigatorDistance'),
   // Views
   rewardsView: document.getElementById('rewardsView'),
   allRewardsView: document.getElementById('allRewardsView'),
@@ -93,6 +97,9 @@ async function init() {
 
   // Set up IPC listeners
   setupIPCListeners();
+
+  // Start Navigator Mockup
+  startNavigatorMockup();
 }
 
 // ─── Settings ───────────────────────────────────────────────────────────────
@@ -388,6 +395,22 @@ function setupIPCListeners() {
   window.poeOverlay && window.poeOverlay.onAreaChange && (() => {
     const { ipcRenderer } = window.require ? window.require('electron') : {};
   })();
+}
+
+// ─── Navigator Mockup (WIP) ─────────────────────────────────────────────────
+function startNavigatorMockup() {
+  if (!elements.navigatorArrow) return;
+  
+  // Update randomly every 2 seconds to simulate guidance
+  setInterval(() => {
+    // Random angle between 0 and 360
+    const angle = Math.floor(Math.random() * 360);
+    // Random distance between 5 and 150
+    const distance = Math.floor(Math.random() * 145) + 5;
+    
+    elements.navigatorArrow.style.transform = `rotate(${angle}deg)`;
+    elements.navigatorDistance.textContent = `${distance}m`;
+  }, 2000);
 }
 
 // ─── View Switching ─────────────────────────────────────────────────────────
