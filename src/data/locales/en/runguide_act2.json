@@ -1,0 +1,134 @@
+{
+  "act": 2,
+  "title": "Act 2 Run Guide",
+  "zones": [
+    {
+      "name": "Start / The Caravan",
+      "mapName": "The Caravan",
+      "order": 1,
+      "steps": [
+        { "id": "a2_1", "action": "boss", "icon": "💀", "text": "Kill the Horse Boss, then teleport to the Caravan", "detail": "" },
+        { "id": "a2_2", "action": "enter", "icon": "🚪", "text": "Go to HALANI GATES and return", "detail": "" }
+      ]
+    },
+    {
+      "name": "Mawdun Quarry & Mine",
+      "mapName": "Mawdun Quarry",
+      "order": 2,
+      "steps": [
+        { "id": "a2_3", "action": "enter", "icon": "🚪", "text": "Go to MAWDUN QUARRY", "detail": "" },
+        { "id": "a2_4", "action": "explore", "icon": "🏃", "text": "Find the way to MAWDUN MINE", "detail": "" },
+        { "id": "a2_5", "action": "boss", "icon": "💀", "text": "Kill Boss RUDJA, help the NPC, and return to the Caravan", "detail": "" }
+      ]
+    },
+    {
+      "name": "Traitor's Passage",
+      "mapName": "Traitor's Passage",
+      "order": 3,
+      "steps": [
+        { "id": "a2_6", "action": "enter", "icon": "🚪", "text": "Go to TRAITOR'S PASSAGE", "detail": "" },
+        { "id": "a2_7", "action": "boss", "icon": "💀", "text": "Kill Boss TRAITOR", "detail": "" }
+      ]
+    },
+    {
+      "name": "The Halani Gates",
+      "mapName": "The Halani Gates",
+      "order": 4,
+      "steps": [
+        { "id": "a2_8", "action": "enter", "icon": "🚪", "text": "Go to THE HALANI GATES", "detail": "" },
+        { "id": "a2_9", "action": "boss", "icon": "💀", "text": "Follow the path to kill the boss, enter the door, walk to the end, then teleport back", "detail": "" }
+      ]
+    },
+    {
+      "name": "Valley of the Titans",
+      "mapName": "Valley of the Titans",
+      "order": 5,
+      "steps": [
+        { "id": "a2_10", "action": "enter", "icon": "🚪", "text": "Go to VALLEY OF THE TITANS", "detail": "" },
+        { "id": "a2_11", "action": "explore", "icon": "🏃", "text": "Open everything, then go to THE TITAN GROTTO", "detail": "" }
+      ]
+    },
+    {
+      "name": "The Titan Grotto (Part 1)",
+      "mapName": "The Titan Grotto",
+      "order": 6,
+      "steps": [
+        { "id": "a2_12", "action": "checkpoint", "icon": "🔵", "text": "Activate the Checkpoint, then return to the Caravan", "detail": "" }
+      ]
+    },
+    {
+      "name": "Keth",
+      "mapName": "Keth",
+      "order": 7,
+      "steps": [
+        { "id": "a2_13", "action": "enter", "icon": "🚪", "text": "Go to KETH", "detail": "" },
+        { "id": "a2_14", "action": "task", "icon": "⚔️", "text": "Clear the map until the quest item drops", "detail": "" },
+        { "id": "a2_15", "action": "boss", "icon": "💀", "text": "Kill Boss KABALA", "detail": "+ PASSIVE SKILL POINTS 📌" }
+      ]
+    },
+    {
+      "name": "The Lost City & Buried Shrines",
+      "mapName": "The Lost City",
+      "order": 8,
+      "steps": [
+        { "id": "a2_16", "action": "explore", "icon": "🏃", "text": "Go to THE LOST CITY and find the way to BURIED SHRINES", "detail": "" },
+        { "id": "a2_17", "action": "boss", "icon": "💀", "text": "Find the room to kill the boss, place the goddess, then teleport back to the Caravan", "detail": "" }
+      ]
+    },
+    {
+      "name": "Trial of the Sekhemas",
+      "mapName": "Trial of the Sekhemas",
+      "order": 9,
+      "steps": [
+        { "id": "a2_18", "action": "enter", "icon": "🚪", "text": "Go to TRIAL OF THE SEKHEMAS", "detail": "Class Points 📌" }
+      ]
+    },
+    {
+      "name": "Mastodon Badlands & The Bone Pits",
+      "mapName": "Mastodon Badlands",
+      "order": 10,
+      "steps": [
+        { "id": "a2_19", "action": "enter", "icon": "🚪", "text": "Go to MASTODON BADLANDS", "detail": "" },
+        { "id": "a2_20", "action": "task", "icon": "⚔️", "text": "Find the way to THE BONE PITS, clear the map until the quest item drops", "detail": "" },
+        { "id": "a2_21", "action": "boss", "icon": "💀", "text": "Kill the boss, get the horn", "detail": "" }
+      ]
+    },
+    {
+      "name": "The Titan Grotto (Part 2)",
+      "mapName": "The Titan Grotto",
+      "order": 11,
+      "steps": [
+        { "id": "a2_22", "action": "boss", "icon": "💀", "text": "Go to THE TITAN GROTTO, kill the boss, and deliver items to the Caravan", "detail": "" },
+        { "id": "a2_23", "action": "explore", "icon": "🎺", "text": "Go blow the horn", "detail": "" }
+      ]
+    },
+    {
+      "name": "Deshar & Path of Mourning",
+      "mapName": "Deshar",
+      "order": 12,
+      "steps": [
+        { "id": "a2_24", "action": "explore", "icon": "🏃", "text": "Go to DESHAR, run and find the corpse", "detail": "" },
+        { "id": "a2_25", "action": "explore", "icon": "🏃", "text": "Find the way to PATH OF MOURNING", "detail": "" }
+      ]
+    },
+    {
+      "name": "The Spires of Deshar",
+      "mapName": "The Spires of Deshar",
+      "order": 13,
+      "steps": [
+        { "id": "a2_26", "action": "boss", "icon": "💀", "text": "Find the way to THE SPIRES OF DESHAR, locate the mini-boss and main boss", "detail": "+ Elemental Resistance 📌" },
+        { "id": "a2_27", "action": "boss", "icon": "💀", "text": "Kill the boss, teleport back to the Caravan", "detail": "" }
+      ]
+    },
+    {
+      "name": "The Dreadnought",
+      "mapName": "The Dreadnought",
+      "order": 14,
+      "steps": [
+        { "id": "a2_28", "action": "enter", "icon": "🚪", "text": "Go to THE DREADNOUGHT", "detail": "" },
+        { "id": "a2_29", "action": "boss", "icon": "💀", "text": "Find the way to kill the boss, return to the Caravan, go down and talk to the shadow", "detail": "" },
+        { "id": "a2_30", "action": "enter", "icon": "🎉", "text": "Proceed to Act 3", "detail": "" }
+      ]
+    }
+  ]
+}

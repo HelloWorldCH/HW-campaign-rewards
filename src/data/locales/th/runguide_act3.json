@@ -1,0 +1,120 @@
+{
+  "act": 3,
+  "title": "วิธีวิ่ง Act 3",
+  "zones": [
+    {
+      "name": "Start / Ziggurat",
+      "mapName": "Ziggurat",
+      "order": 1,
+      "steps": [
+        { "id": "a3_1", "action": "boss", "icon": "💀", "text": "เคลียบอสเล็ก 2 ตัว หาทางไปแมพ ZIGGURAT", "detail": "" }
+      ]
+    },
+    {
+      "name": "Jungle Ruins & Venom Crypts",
+      "mapName": "Jungle Ruins",
+      "order": 2,
+      "steps": [
+        { "id": "a3_2", "action": "enter", "icon": "🚪", "text": "ไป JUNGLE RUINS", "detail": "" },
+        { "id": "a3_3", "action": "boss", "icon": "💀", "text": "ตีบอสลิง", "detail": "+ PASSIVE SKILL POINTS 📌" },
+        { "id": "a3_4", "action": "enter", "icon": "🚪", "text": "ไป THE VENOM CRYPTS", "detail": "" },
+        { "id": "a3_5", "action": "explore", "icon": "🏃", "text": "หาศพ เก็บของเควส วาปกลับ", "detail": "" }
+      ]
+    },
+    {
+      "name": "Infested Barrens & Azak Bog (Part 1)",
+      "mapName": "Infested Barrens",
+      "order": 3,
+      "steps": [
+        { "id": "a3_6", "action": "enter", "icon": "🚪", "text": "ไป JUNGLE RUINS", "detail": "" },
+        { "id": "a3_7", "action": "enter", "icon": "🚪", "text": "ไป INFESTED BARRENS", "detail": "" },
+        { "id": "a3_8", "action": "checkpoint", "icon": "🔵", "text": "ไป AZAK BOG เช็คเวย์พ้อย กลับ INFESTED BARRENS", "detail": "" }
+      ]
+    },
+    {
+      "name": "Chimeral Wetlands & Temple of Chaos",
+      "mapName": "Chimeral Wetlands",
+      "order": 4,
+      "steps": [
+        { "id": "a3_9", "action": "enter", "icon": "🚪", "text": "ไป CHIMERAL WETLANDS", "detail": "" },
+        { "id": "a3_10", "action": "enter", "icon": "🚪", "text": "ไป THE TEMPLE OF CHAOS", "detail": "เล่นเอาแต้มคลาส 📌" },
+        { "id": "a3_11", "action": "boss", "icon": "💀", "text": "ตีบอส CHIMERA", "detail": "" }
+      ]
+    },
+    {
+      "name": "Jiquani Machinarium & Azak Bog (Part 2)",
+      "mapName": "Jiquani Machinarium",
+      "order": 5,
+      "steps": [
+        { "id": "a3_12", "action": "checkpoint", "icon": "🔵", "text": "ไป JIQUANI MACHINARIUM เช็คเวย์พ้อย กลับ", "detail": "" },
+        { "id": "a3_13", "action": "enter", "icon": "🚪", "text": "ไป AZAK BOG", "detail": "" },
+        { "id": "a3_14", "action": "boss", "icon": "💀", "text": "ตีบอส BOG WITCH", "detail": "+30 MAXIMUM SPIRIT 📌" }
+      ]
+    },
+    {
+      "name": "Jiquani Machinarium & Sanctum",
+      "mapName": "Jiquani Sanctum",
+      "order": 6,
+      "steps": [
+        { "id": "a3_15", "action": "enter", "icon": "🚪", "text": "ไป JIQUANI MACHINARIUM", "detail": "" },
+        { "id": "a3_16", "action": "boss", "icon": "💀", "text": "ตีบอส REMNANT", "detail": "+10% FIRE RESISTANCE 📌" },
+        { "id": "a3_17", "action": "enter", "icon": "🚪", "text": "ไป JIQUANI SANCTUM", "detail": "" },
+        { "id": "a3_18", "action": "boss", "icon": "💀", "text": "ตี บอส กลับ เมือง", "detail": "" }
+      ]
+    },
+    {
+      "name": "Matlan Waterways & The Drowned City",
+      "mapName": "Matlan Waterways",
+      "order": 7,
+      "steps": [
+        { "id": "a3_19", "action": "enter", "icon": "🚪", "text": "ไป INFESTED BARRENS", "detail": "" },
+        { "id": "a3_20", "action": "enter", "icon": "🚪", "text": "ไป MATLAN WATERWAYS", "detail": "" },
+        { "id": "a3_21", "action": "explore", "icon": "🏃", "text": "วิ่งจนสุดยกคันโยกกลับเมือง", "detail": "" },
+        { "id": "a3_22", "action": "enter", "icon": "🚪", "text": "วิ่งลงล่าง ไปเมือง THE DROWNED CITY", "detail": "" }
+      ]
+    },
+    {
+      "name": "Apex of Filth & Molten Vault",
+      "mapName": "Apex of Filth",
+      "order": 8,
+      "steps": [
+        { "id": "a3_23", "action": "enter", "icon": "🚪", "text": "ไป APEX OF FILTH", "detail": "" },
+        { "id": "a3_24", "action": "enter", "icon": "🚪", "text": "ไป MOLTEN VAULT", "detail": "เปิดที่คราฟ 📌" },
+        { "id": "a3_25", "action": "boss", "icon": "💀", "text": "แมพ APEX OF FILTH ตีบอส QUEEN OF FILTH กลับเมือง", "detail": "" }
+      ]
+    },
+    {
+      "name": "Temple of Kopec & Time Travel",
+      "mapName": "Temple of Kopec",
+      "order": 9,
+      "steps": [
+        { "id": "a3_26", "action": "explore", "icon": "🏃", "text": "วิ่งลงล่างไป TEMPLE OF KOPEC", "detail": "" },
+        { "id": "a3_27", "action": "boss", "icon": "💀", "text": "วิ่งขึ้นชั้นไปตีบอส เปิดย้อนเวลา", "detail": "" },
+        { "id": "a3_28", "action": "enter", "icon": "🚪", "text": "เข้าประตู ย้อนเวลา", "detail": "" }
+      ]
+    },
+    {
+      "name": "Utzaal",
+      "mapName": "Utzaal",
+      "order": 10,
+      "steps": [
+        { "id": "a3_29", "action": "explore", "icon": "🏃", "text": "วิ่งลงล่างไป UTZAAL", "detail": "" },
+        { "id": "a3_30", "action": "task", "icon": "⚔️", "text": "ล้างแมพ หาหัวใจดรอป", "detail": "" },
+        { "id": "a3_31", "action": "boss", "icon": "💀", "text": "ตีบอส VIPER NAPUATZ", "detail": "" }
+      ]
+    },
+    {
+      "name": "Aggorat & The Black Chambers",
+      "mapName": "Aggorat",
+      "order": 11,
+      "steps": [
+        { "id": "a3_32", "action": "enter", "icon": "🚪", "text": "ไป AGGORAT", "detail": "" },
+        { "id": "a3_33", "action": "explore", "icon": "🏃", "text": "หาแท่นปักหัวใจ", "detail": "+ PASSIVE SKILL POINTS 📌" },
+        { "id": "a3_34", "action": "enter", "icon": "🚪", "text": "ไป THE BLACK CHAMBERS", "detail": "" },
+        { "id": "a3_35", "action": "boss", "icon": "💀", "text": "ตีบอส DORTANI", "detail": "" },
+        { "id": "a3_36", "action": "waypoint", "icon": "🔵", "text": "กลับเมือง", "detail": "" },
+        { "id": "a3_37", "action": "enter", "icon": "🎉", "text": "ไป ACT 4", "detail": "" }
+      ]
+    }
+  ]
+}

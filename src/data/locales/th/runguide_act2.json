@@ -1,0 +1,134 @@
+{
+  "act": 2,
+  "title": "วิธีวิ่ง Act 2",
+  "zones": [
+    {
+      "name": "Start / The Caravan",
+      "mapName": "The Caravan",
+      "order": 1,
+      "steps": [
+        { "id": "a2_1", "action": "boss", "icon": "💀", "text": "เดินตีบอสม้า เสร็จวาปไปคาราวาน", "detail": "" },
+        { "id": "a2_2", "action": "enter", "icon": "🚪", "text": "ไป HALANI GATES แล้วกลับ", "detail": "" }
+      ]
+    },
+    {
+      "name": "Mawdun Quarry & Mine",
+      "mapName": "Mawdun Quarry",
+      "order": 2,
+      "steps": [
+        { "id": "a2_3", "action": "enter", "icon": "🚪", "text": "ไป MAWDUN QUARRY", "detail": "" },
+        { "id": "a2_4", "action": "explore", "icon": "🏃", "text": "หาทางไป MAWDUN MINE", "detail": "" },
+        { "id": "a2_5", "action": "boss", "icon": "💀", "text": "ตีบอส RUDJA ช่วย NPC และ กลับคาราวาน", "detail": "" }
+      ]
+    },
+    {
+      "name": "Traitor's Passage",
+      "mapName": "Traitor's Passage",
+      "order": 3,
+      "steps": [
+        { "id": "a2_6", "action": "enter", "icon": "🚪", "text": "ไป TRAITOR'S PASSAGE", "detail": "" },
+        { "id": "a2_7", "action": "boss", "icon": "💀", "text": "ตีบอส TRAITOR", "detail": "" }
+      ]
+    },
+    {
+      "name": "The Halani Gates",
+      "mapName": "The Halani Gates",
+      "order": 4,
+      "steps": [
+        { "id": "a2_8", "action": "enter", "icon": "🚪", "text": "ไป THE HALANI GATES", "detail": "" },
+        { "id": "a2_9", "action": "boss", "icon": "💀", "text": "ตามทางไปตีบอส เข้าไปในประตู เดินจนสุด วาปกลับ", "detail": "" }
+      ]
+    },
+    {
+      "name": "Valley of the Titans",
+      "mapName": "Valley of the Titans",
+      "order": 5,
+      "steps": [
+        { "id": "a2_10", "action": "enter", "icon": "🚪", "text": "ไป VALLEY OF THE TITANS", "detail": "" },
+        { "id": "a2_11", "action": "explore", "icon": "🏃", "text": "เปิดทุกอย่างแล้วไป THE TITAN GROTTO", "detail": "" }
+      ]
+    },
+    {
+      "name": "The Titan Grotto (Part 1)",
+      "mapName": "The Titan Grotto",
+      "order": 6,
+      "steps": [
+        { "id": "a2_12", "action": "checkpoint", "icon": "🔵", "text": "เช็คพ้อย แล้ว กลับคาราวาน", "detail": "" }
+      ]
+    },
+    {
+      "name": "Keth",
+      "mapName": "Keth",
+      "order": 7,
+      "steps": [
+        { "id": "a2_13", "action": "enter", "icon": "🚪", "text": "ไป KETH", "detail": "" },
+        { "id": "a2_14", "action": "task", "icon": "⚔️", "text": "ล้างแมพจนกว่าจะดรอป ของเควส", "detail": "" },
+        { "id": "a2_15", "action": "boss", "icon": "💀", "text": "ตีบอส KABALA", "detail": "+ PASSIVE SKILL POINTS 📌" }
+      ]
+    },
+    {
+      "name": "The Lost City & Buried Shrines",
+      "mapName": "The Lost City",
+      "order": 8,
+      "steps": [
+        { "id": "a2_16", "action": "explore", "icon": "🏃", "text": "ไป THE LOST CITY และ หาทางไป BURIED SHRINES", "detail": "" },
+        { "id": "a2_17", "action": "boss", "icon": "💀", "text": "หาห้องเข้าไปตีบอส และปักเทพี วาปกลับคาราวาน", "detail": "" }
+      ]
+    },
+    {
+      "name": "Trial of the Sekhemas",
+      "mapName": "Trial of the Sekhemas",
+      "order": 9,
+      "steps": [
+        { "id": "a2_18", "action": "enter", "icon": "🚪", "text": "ไป TRIAL OF THE SEKHEMAS", "detail": "เล่นเอาแต้มคลาส 📌" }
+      ]
+    },
+    {
+      "name": "Mastodon Badlands & The Bone Pits",
+      "mapName": "Mastodon Badlands",
+      "order": 10,
+      "steps": [
+        { "id": "a2_19", "action": "enter", "icon": "🚪", "text": "ไป MASTODON BADLANDS", "detail": "" },
+        { "id": "a2_20", "action": "task", "icon": "⚔️", "text": "หาทางไป THE BONE PITS ล้างแมพจนกว่าจะดรอปของเควส", "detail": "" },
+        { "id": "a2_21", "action": "boss", "icon": "💀", "text": "ตีบอส เอาแตร", "detail": "" }
+      ]
+    },
+    {
+      "name": "The Titan Grotto (Part 2)",
+      "mapName": "The Titan Grotto",
+      "order": 11,
+      "steps": [
+        { "id": "a2_22", "action": "boss", "icon": "💀", "text": "ไป THE TITAN GROTTO ตีบอสเอาของมาส่งที่คาราวาน", "detail": "" },
+        { "id": "a2_23", "action": "explore", "icon": "🎺", "text": "ไปเป่าแตร", "detail": "" }
+      ]
+    },
+    {
+      "name": "Deshar & Path of Mourning",
+      "mapName": "Deshar",
+      "order": 12,
+      "steps": [
+        { "id": "a2_24", "action": "explore", "icon": "🏃", "text": "ไป DESHAR วิ่งหาศพ", "detail": "" },
+        { "id": "a2_25", "action": "explore", "icon": "🏃", "text": "หาทางไป PATH OF MOURNING", "detail": "" }
+      ]
+    },
+    {
+      "name": "The Spires of Deshar",
+      "mapName": "The Spires of Deshar",
+      "order": 13,
+      "steps": [
+        { "id": "a2_26", "action": "boss", "icon": "💀", "text": "หาทางไป THE SPIRES OF DESHAR หาบอสเล็ก และ ใหญ่", "detail": "เล่นเอากันธาตุ 📌" },
+        { "id": "a2_27", "action": "boss", "icon": "💀", "text": "ตีบอสวาปกลับคาราวาน", "detail": "" }
+      ]
+    },
+    {
+      "name": "The Dreadnought",
+      "mapName": "The Dreadnought",
+      "order": 14,
+      "steps": [
+        { "id": "a2_28", "action": "enter", "icon": "🚪", "text": "ไป THE DREADNOUGHT", "detail": "" },
+        { "id": "a2_29", "action": "boss", "icon": "💀", "text": "หาทางไปตีบอส กลับคาราวาน ลงไปคุยกับเงา", "detail": "" },
+        { "id": "a2_30", "action": "enter", "icon": "🎉", "text": "ไปACT3", "detail": "" }
+      ]
+    }
+  ]
+}

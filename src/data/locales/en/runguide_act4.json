@@ -1,0 +1,83 @@
+{
+  "act": 4,
+  "title": "Act 4 Run Guide",
+  "zones": [
+    {
+      "name": "Isle of Kin & Volcanic Warrens",
+      "mapName": "Isle of Kin",
+      "order": 1,
+      "steps": [
+        { "id": "a4_1", "action": "enter", "icon": "🚪", "text": "Go to ISLE OF KIN", "detail": "" },
+        { "id": "a4_2", "action": "boss", "icon": "💀", "text": "Kill Boss BLIND BEAST", "detail": "+ PASSIVE SKILL POINTS 📌" },
+        { "id": "a4_3", "action": "enter", "icon": "🚪", "text": "Go to VOLCANIC WARRENS", "detail": "" },
+        { "id": "a4_4", "action": "boss", "icon": "💀", "text": "Kill Boss LORD OF KIN, talk to NPC, teleport to town", "detail": "" }
+      ]
+    },
+    {
+      "name": "Shrike Island & Abandoned Prison",
+      "mapName": "Shrike Island",
+      "order": 2,
+      "steps": [
+        { "id": "a4_5", "action": "enter", "icon": "🚪", "text": "Go to SHRIKE ISLAND", "detail": "" },
+        { "id": "a4_6", "action": "boss", "icon": "💀", "text": "Kill Boss SCOURGE, teleport back to ship, talk to NPC", "detail": "" },
+        { "id": "a4_7", "action": "enter", "icon": "🚪", "text": "Go to ABANDONED PRISON", "detail": "Flask Buff 📌" },
+        { "id": "a4_8", "action": "enter", "icon": "🚪", "text": "Go to SOLITARY CONFINEMENT", "detail": "" },
+        { "id": "a4_9", "action": "boss", "icon": "💀", "text": "Open door, kill Boss PRISONER, return to town", "detail": "" }
+      ]
+    },
+    {
+      "name": "Kedge Bay & Journey End",
+      "mapName": "Kedge Bay",
+      "order": 3,
+      "steps": [
+        { "id": "a4_10", "action": "enter", "icon": "🚪", "text": "Go to KEDGE BAY", "detail": "" },
+        { "id": "a4_11", "action": "enter", "icon": "🚪", "text": "Go to JOURNEY END", "detail": "" },
+        { "id": "a4_12", "action": "boss", "icon": "💀", "text": "Kill CAPTAIN HARTLIN, return to town", "detail": "" },
+        { "id": "a4_13", "action": "boss", "icon": "💀", "text": "Kill Boss OMNIPHOBIA, teleport to ship", "detail": "" }
+      ]
+    },
+    {
+      "name": "Whakapanu Island & Singing Caverns",
+      "mapName": "Whakapanu Island",
+      "order": 4,
+      "steps": [
+        { "id": "a4_14", "action": "enter", "icon": "🚪", "text": "Go to WHAKAPANU ISLAND", "detail": "" },
+        { "id": "a4_15", "action": "boss", "icon": "💀", "text": "Kill mini boss", "detail": "" },
+        { "id": "a4_16", "action": "enter", "icon": "🚪", "text": "Go to SINGING CAVERNS", "detail": "" },
+        { "id": "a4_17", "action": "boss", "icon": "💀", "text": "Collect pearl, kill Boss DIAMORA SONG OF DEATH, teleport to ship", "detail": "" }
+      ]
+    },
+    {
+      "name": "Eye of Hinekora & Halls of the Death",
+      "mapName": "Eye of Hinekora",
+      "order": 5,
+      "steps": [
+        { "id": "a4_18", "action": "explore", "icon": "🏃", "text": "Go to EYE OF HINEKORA, clear map objectives", "detail": "+ 5% Max Mana 📌" },
+        { "id": "a4_19", "action": "explore", "icon": "🏃", "text": "Go to HALLS OF THE DEATH, collect elemental resistances in 3 rooms", "detail": "" },
+        { "id": "a4_20", "action": "boss", "icon": "💀", "text": "Kill monkey boss YAMA THE WHITE, talk to NPC, teleport to town", "detail": "+ PASSIVE SKILL POINTS 📌" }
+      ]
+    },
+    {
+      "name": "Arastas & The Excavation",
+      "mapName": "Arastas",
+      "order": 6,
+      "steps": [
+        { "id": "a4_21", "action": "explore", "icon": "🏃", "text": "Go to ARASTAS, collect 2 bells", "detail": "" },
+        { "id": "a4_22", "action": "boss", "icon": "💀", "text": "Kill Boss TORVIAN", "detail": "" },
+        { "id": "a4_23", "action": "enter", "icon": "🚪", "text": "Go to THE EXCAVATION", "detail": "" },
+        { "id": "a4_24", "action": "boss", "icon": "💀", "text": "Kill Boss BENEDICTUS, finish talking, return to town", "detail": "" }
+      ]
+    },
+    {
+      "name": "Ngakanu & Heart of the Tribe",
+      "mapName": "Ngakanu",
+      "order": 7,
+      "steps": [
+        { "id": "a4_25", "action": "enter", "icon": "🚪", "text": "Go to NGAKANU", "detail": "" },
+        { "id": "a4_26", "action": "enter", "icon": "🚪", "text": "Go to HEART OF THE TRIBE", "detail": "" },
+        { "id": "a4_27", "action": "boss", "icon": "💀", "text": "Kill Boss TAVAKAI, return to town", "detail": "" },
+        { "id": "a4_28", "action": "enter", "icon": "🎉", "text": "Go to INTERLUDE", "detail": "" }
+      ]
+    }
+  ]
+}

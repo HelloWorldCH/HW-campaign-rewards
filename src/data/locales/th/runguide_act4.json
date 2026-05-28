@@ -1,0 +1,83 @@
+{
+  "act": 4,
+  "title": "วิธีวิ่ง Act 4",
+  "zones": [
+    {
+      "name": "Isle of Kin & Volcanic Warrens",
+      "mapName": "Isle of Kin",
+      "order": 1,
+      "steps": [
+        { "id": "a4_1", "action": "enter", "icon": "🚪", "text": "ไป ISLE OF KIN", "detail": "" },
+        { "id": "a4_2", "action": "boss", "icon": "💀", "text": "ตีบอส BLIND BEAST", "detail": "+ PASSIVE SKILL POINTS 📌" },
+        { "id": "a4_3", "action": "enter", "icon": "🚪", "text": "ไป VOLCANIC WARRENS", "detail": "" },
+        { "id": "a4_4", "action": "boss", "icon": "💀", "text": "ตีบอส LORD OF KIN คุย NPC วาปกลับเมือง", "detail": "" }
+      ]
+    },
+    {
+      "name": "Shrike Island & Abandoned Prison",
+      "mapName": "Shrike Island",
+      "order": 2,
+      "steps": [
+        { "id": "a4_5", "action": "enter", "icon": "🚪", "text": "ไป SHRIKE ISLAND", "detail": "" },
+        { "id": "a4_6", "action": "boss", "icon": "💀", "text": "ตีบอส SCOURGE วาปกลับเรือ คุย NPC", "detail": "" },
+        { "id": "a4_7", "action": "enter", "icon": "🚪", "text": "ไป ABANDONED PRISON", "detail": "เลือกบัฟขวดยา 📌" },
+        { "id": "a4_8", "action": "enter", "icon": "🚪", "text": "ไป SOLITARY CONFINEMENT", "detail": "" },
+        { "id": "a4_9", "action": "boss", "icon": "💀", "text": "เปิดประตูตีบอส PRISONER กลับเมือง", "detail": "" }
+      ]
+    },
+    {
+      "name": "Kedge Bay & Journey End",
+      "mapName": "Kedge Bay",
+      "order": 3,
+      "steps": [
+        { "id": "a4_10", "action": "enter", "icon": "🚪", "text": "ไป KEDGE BAY", "detail": "" },
+        { "id": "a4_11", "action": "enter", "icon": "🚪", "text": "ไป JOURNEY END", "detail": "" },
+        { "id": "a4_12", "action": "boss", "icon": "💀", "text": "ตี CAPTAIN HARTLIN กลับเมือง", "detail": "" },
+        { "id": "a4_13", "action": "boss", "icon": "💀", "text": "ตีบอส OMNIPHOBIA วาปไปเรือ", "detail": "" }
+      ]
+    },
+    {
+      "name": "Whakapanu Island & Singing Caverns",
+      "mapName": "Whakapanu Island",
+      "order": 4,
+      "steps": [
+        { "id": "a4_14", "action": "enter", "icon": "🚪", "text": "ไป WHAKAPANU ISLAND", "detail": "" },
+        { "id": "a4_15", "action": "boss", "icon": "💀", "text": "ตีบอสเล็ก", "detail": "" },
+        { "id": "a4_16", "action": "enter", "icon": "🚪", "text": "ไป SINGING CAVERNS", "detail": "" },
+        { "id": "a4_17", "action": "boss", "icon": "💀", "text": "เก็บไข่มุก ตีบอส DIAMORA SONG OF DEATH วาปไปเรือ", "detail": "" }
+      ]
+    },
+    {
+      "name": "Eye of Hinekora & Halls of the Death",
+      "mapName": "Eye of Hinekora",
+      "order": 5,
+      "steps": [
+        { "id": "a4_18", "action": "explore", "icon": "🏃", "text": "ไป EYE OF HINEKORA เคลียโจทย์แมพ", "detail": "+ มานาสูงสุด 5% 📌" },
+        { "id": "a4_19", "action": "explore", "icon": "🏃", "text": "ไป HALLS OF THE DEATH เก็บกันธาตุ 3 ห้อง", "detail": "" },
+        { "id": "a4_20", "action": "boss", "icon": "💀", "text": "ตีบอสลิง YAMA THE WHITE เข้าไปคุย NPC วาปกลับเมือง", "detail": "+ PASSIVE SKILL POINTS 📌" }
+      ]
+    },
+    {
+      "name": "Arastas & The Excavation",
+      "mapName": "Arastas",
+      "order": 6,
+      "steps": [
+        { "id": "a4_21", "action": "explore", "icon": "🏃", "text": "ไป ARASTAS เก็บ ระฆัง 2 อัน", "detail": "" },
+        { "id": "a4_22", "action": "boss", "icon": "💀", "text": "ตีบอส TORVIAN", "detail": "" },
+        { "id": "a4_23", "action": "enter", "icon": "🚪", "text": "ไป THE EXCAVATION", "detail": "" },
+        { "id": "a4_24", "action": "boss", "icon": "💀", "text": "ตีบอส BENEDICTUS คุยจบ กลับเมือง", "detail": "" }
+      ]
+    },
+    {
+      "name": "Ngakanu & Heart of the Tribe",
+      "mapName": "Ngakanu",
+      "order": 7,
+      "steps": [
+        { "id": "a4_25", "action": "enter", "icon": "🚪", "text": "ไป NGAKANU", "detail": "" },
+        { "id": "a4_26", "action": "enter", "icon": "🚪", "text": "ไป HEART OF THE TRIBE", "detail": "" },
+        { "id": "a4_27", "action": "boss", "icon": "💀", "text": "ตีบอส TAVAKAI กลับเมือง", "detail": "" },
+        { "id": "a4_28", "action": "enter", "icon": "🎉", "text": "ไป INTERLUDE", "detail": "" }
+      ]
+    }
+  ]
+}

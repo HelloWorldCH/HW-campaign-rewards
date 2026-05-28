@@ -1,0 +1,120 @@
+{
+  "act": 3,
+  "title": "Act 3 Run Guide",
+  "zones": [
+    {
+      "name": "Start / Ziggurat",
+      "mapName": "Ziggurat",
+      "order": 1,
+      "steps": [
+        { "id": "a3_1", "action": "boss", "icon": "💀", "text": "Clear 2 mini-bosses, find the way to ZIGGURAT map", "detail": "" }
+      ]
+    },
+    {
+      "name": "Jungle Ruins & Venom Crypts",
+      "mapName": "Jungle Ruins",
+      "order": 2,
+      "steps": [
+        { "id": "a3_2", "action": "enter", "icon": "🚪", "text": "Go to JUNGLE RUINS", "detail": "" },
+        { "id": "a3_3", "action": "boss", "icon": "💀", "text": "Kill the monkey boss", "detail": "+ PASSIVE SKILL POINTS 📌" },
+        { "id": "a3_4", "action": "enter", "icon": "🚪", "text": "Go to THE VENOM CRYPTS", "detail": "" },
+        { "id": "a3_5", "action": "explore", "icon": "🏃", "text": "Find the corpse, get the quest item, and teleport back", "detail": "" }
+      ]
+    },
+    {
+      "name": "Infested Barrens & Azak Bog (Part 1)",
+      "mapName": "Infested Barrens",
+      "order": 3,
+      "steps": [
+        { "id": "a3_6", "action": "enter", "icon": "🚪", "text": "Go to JUNGLE RUINS", "detail": "" },
+        { "id": "a3_7", "action": "enter", "icon": "🚪", "text": "Go to INFESTED BARRENS", "detail": "" },
+        { "id": "a3_8", "action": "checkpoint", "icon": "🔵", "text": "Go to AZAK BOG, get the waypoint, and return to INFESTED BARRENS", "detail": "" }
+      ]
+    },
+    {
+      "name": "Chimeral Wetlands & Temple of Chaos",
+      "mapName": "Chimeral Wetlands",
+      "order": 4,
+      "steps": [
+        { "id": "a3_9", "action": "enter", "icon": "🚪", "text": "Go to CHIMERAL WETLANDS", "detail": "" },
+        { "id": "a3_10", "action": "enter", "icon": "🚪", "text": "Go to THE TEMPLE OF CHAOS", "detail": "Class Points 📌" },
+        { "id": "a3_11", "action": "boss", "icon": "💀", "text": "Kill Boss CHIMERA", "detail": "" }
+      ]
+    },
+    {
+      "name": "Jiquani Machinarium & Azak Bog (Part 2)",
+      "mapName": "Jiquani Machinarium",
+      "order": 5,
+      "steps": [
+        { "id": "a3_12", "action": "checkpoint", "icon": "🔵", "text": "Go to JIQUANI MACHINARIUM, get the waypoint, and return", "detail": "" },
+        { "id": "a3_13", "action": "enter", "icon": "🚪", "text": "Go to AZAK BOG", "detail": "" },
+        { "id": "a3_14", "action": "boss", "icon": "💀", "text": "Kill Boss BOG WITCH", "detail": "+30 MAXIMUM SPIRIT 📌" }
+      ]
+    },
+    {
+      "name": "Jiquani Machinarium & Sanctum",
+      "mapName": "Jiquani Sanctum",
+      "order": 6,
+      "steps": [
+        { "id": "a3_15", "action": "enter", "icon": "🚪", "text": "Go to JIQUANI MACHINARIUM", "detail": "" },
+        { "id": "a3_16", "action": "boss", "icon": "💀", "text": "Kill Boss REMNANT", "detail": "+10% FIRE RESISTANCE 📌" },
+        { "id": "a3_17", "action": "enter", "icon": "🚪", "text": "Go to JIQUANI SANCTUM", "detail": "" },
+        { "id": "a3_18", "action": "boss", "icon": "💀", "text": "Kill the boss, return to town", "detail": "" }
+      ]
+    },
+    {
+      "name": "Matlan Waterways & The Drowned City",
+      "mapName": "Matlan Waterways",
+      "order": 7,
+      "steps": [
+        { "id": "a3_19", "action": "enter", "icon": "🚪", "text": "Go to INFESTED BARRENS", "detail": "" },
+        { "id": "a3_20", "action": "enter", "icon": "🚪", "text": "Go to MATLAN WATERWAYS", "detail": "" },
+        { "id": "a3_21", "action": "explore", "icon": "🏃", "text": "Run to the end, pull the lever, return to town", "detail": "" },
+        { "id": "a3_22", "action": "enter", "icon": "🚪", "text": "Run downwards, go to town THE DROWNED CITY", "detail": "" }
+      ]
+    },
+    {
+      "name": "Apex of Filth & Molten Vault",
+      "mapName": "Apex of Filth",
+      "order": 8,
+      "steps": [
+        { "id": "a3_23", "action": "enter", "icon": "🚪", "text": "Go to APEX OF FILTH", "detail": "" },
+        { "id": "a3_24", "action": "enter", "icon": "🚪", "text": "Go to MOLTEN VAULT", "detail": "Unlock crafting 📌" },
+        { "id": "a3_25", "action": "boss", "icon": "💀", "text": "In APEX OF FILTH, kill Boss QUEEN OF FILTH, return to town", "detail": "" }
+      ]
+    },
+    {
+      "name": "Temple of Kopec & Time Travel",
+      "mapName": "Temple of Kopec",
+      "order": 9,
+      "steps": [
+        { "id": "a3_26", "action": "explore", "icon": "🏃", "text": "Run downwards to TEMPLE OF KOPEC", "detail": "" },
+        { "id": "a3_27", "action": "boss", "icon": "💀", "text": "Run upstairs to kill the boss, open time travel", "detail": "" },
+        { "id": "a3_28", "action": "enter", "icon": "🚪", "text": "Enter the time travel door", "detail": "" }
+      ]
+    },
+    {
+      "name": "Utzaal",
+      "mapName": "Utzaal",
+      "order": 10,
+      "steps": [
+        { "id": "a3_29", "action": "explore", "icon": "🏃", "text": "Run downwards to UTZAAL", "detail": "" },
+        { "id": "a3_30", "action": "task", "icon": "⚔️", "text": "Clear the map, find the dropped heart", "detail": "" },
+        { "id": "a3_31", "action": "boss", "icon": "💀", "text": "Kill Boss VIPER NAPUATZ", "detail": "" }
+      ]
+    },
+    {
+      "name": "Aggorat & The Black Chambers",
+      "mapName": "Aggorat",
+      "order": 11,
+      "steps": [
+        { "id": "a3_32", "action": "enter", "icon": "🚪", "text": "Go to AGGORAT", "detail": "" },
+        { "id": "a3_33", "action": "explore", "icon": "🏃", "text": "Find the altar to place the heart", "detail": "+ PASSIVE SKILL POINTS 📌" },
+        { "id": "a3_34", "action": "enter", "icon": "🚪", "text": "Go to THE BLACK CHAMBERS", "detail": "" },
+        { "id": "a3_35", "action": "boss", "icon": "💀", "text": "Kill Boss DORTANI", "detail": "" },
+        { "id": "a3_36", "action": "waypoint", "icon": "🔵", "text": "Return to town", "detail": "" },
+        { "id": "a3_37", "action": "enter", "icon": "🎉", "text": "Proceed to Act 4", "detail": "" }
+      ]
+    }
+  ]
+}
