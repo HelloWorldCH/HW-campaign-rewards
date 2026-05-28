@@ -2,6 +2,13 @@
 
 โปรแกรม Overlay สำหรับบอกข้อมูลของรางวัลจากการทำเควส (Campaign Rewards) ในเกม Path of Exile 2 
 
+## 📸 ภาพตัวอย่างโปรแกรม (Screenshots)
+
+![auto_map_guide](image/auto_map_guide.png)
+![auto_map_rewards](image/auto_map_rewards.png)
+![run_map_guide](image/run_map_guide.png)
+
+
 ## 📥 วิธีดาวน์โหลดสำหรับผู้ใช้งานทั่วไป (Normal Users)
 
 หากคุณแค่ต้องการดาวน์โหลดโปรแกรมไปใช้งานเล่นเกม:
