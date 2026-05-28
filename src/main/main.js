@@ -66,14 +66,14 @@ function loadCampaignData(language = 'en') {
   try {
     const localesPath = path.join(__dirname, '..', 'data', 'locales', language);
     if (!fs.existsSync(localesPath)) return;
-    
+
     // Load global
     const globalPath = path.join(localesPath, 'global.json');
     let globalData = { meta: {}, summary: {} };
     if (fs.existsSync(globalPath)) {
       globalData = JSON.parse(fs.readFileSync(globalPath, 'utf8'));
     }
-    
+
     let areas = {};
     const files = fs.readdirSync(localesPath);
     for (const file of files) {
@@ -82,7 +82,7 @@ function loadCampaignData(language = 'en') {
         areas = { ...areas, ...actAreas };
       }
     }
-    
+
     campaignData = {
       meta: globalData.meta,
       summary: globalData.summary,
@@ -165,6 +165,7 @@ function createOverlayWindow() {
     height: winSize.height,
     transparent: true,
     frame: false,
+    focusable: false,
     roundedCorners: false,
     hasShadow: false,
     backgroundColor: '#00000000',
@@ -197,7 +198,7 @@ function createOverlayWindow() {
       settings.set('windowPosition', { x, y });
     } catch (err) { log('ERROR', 'moved event error:', err); }
   });
-  
+
   mainWindow.on('resized', () => {
     try {
       const [width, height] = mainWindow.getSize();
@@ -573,7 +574,7 @@ function setupIPC() {
     const profiles = settings.get('profiles') || {};
     delete profiles[profileId];
     settings.set('profiles', profiles);
-    
+
     // Switch to first available or recreate default
     const keys = Object.keys(profiles);
     let newActive = keys.length > 0 ? keys[0] : null;
@@ -583,7 +584,7 @@ function setupIPC() {
       settings.set('profiles', profiles);
     }
     settings.set('activeProfileId', newActive);
-    
+
     return { profiles, activeProfileId: newActive };
   });
 
@@ -601,7 +602,7 @@ function setupIPC() {
       if (!Array.isArray(data)) {
         throw new Error('Invalid API response');
       }
-      
+
       const profiles = settings.get('profiles') || {};
       let anyAdded = false;
       let firstCharId = null;
@@ -610,11 +611,11 @@ function setupIPC() {
         if (!char.name) return;
         const id = char.name;
         if (!firstCharId) firstCharId = id;
-        
+
         // Preserve existing completed rewards if profile already exists
         const existingRewards = profiles[id] ? profiles[id].completedRewards : [];
         const label = `${char.name} (Lv ${char.level} ${char.class})`;
-        
+
         profiles[id] = {
           id,
           name: label,
@@ -628,14 +629,14 @@ function setupIPC() {
       }
 
       settings.set('profiles', profiles);
-      
+
       // Keep active if it exists, otherwise switch to first character
       let activeId = settings.get('activeProfileId');
       if (!profiles[activeId]) {
         activeId = firstCharId;
         settings.set('activeProfileId', activeId);
       }
-      
+
       return { profiles, activeProfileId: activeId };
     } catch (err) {
       log('ERROR', 'import-characters error:', err);
@@ -646,23 +647,23 @@ function setupIPC() {
   ipcMain.handle('toggle-reward-completion', (event, rewardId, completed) => {
     const profiles = settings.get('profiles') || {};
     const activeId = settings.get('activeProfileId') || 'Default Character';
-    
+
     // Fallback/Migration if active profile missing
     if (!profiles[activeId]) {
       profiles[activeId] = { id: activeId, name: activeId, completedRewards: [] };
     }
-    
+
     let completedRewards = profiles[activeId].completedRewards || [];
-    
+
     if (completed) {
       if (!completedRewards.includes(rewardId)) completedRewards.push(rewardId);
     } else {
       completedRewards = completedRewards.filter(id => id !== rewardId);
     }
-    
+
     profiles[activeId].completedRewards = completedRewards;
     settings.set('profiles', profiles);
-    
+
     return completedRewards;
   });
 
