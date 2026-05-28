@@ -2,6 +2,7 @@
   "name": "hw-poe2-campaign-rewards",
   "version": "1.0.0",
   "description": "PoE2 Campaign Rewards Overlay — Shows campaign rewards for the current area in Path of Exile 2",
+  "repository": "HelloWorldCH/HW-campaign-rewards",
   "main": "src/main/main.js",
   "scripts": {
     "dev": "electron .",
