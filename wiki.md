@@ -20,6 +20,7 @@
 3. ไปที่โฟลเดอร์เกม Path of Exile 2 ของคุณ และเข้าไปที่โฟลเดอร์ `logs` โดยปกติจะอยู่ที่:
    - **สำหรับตัวเกมปกติ (Standalone):** `C:\Program Files (x86)\Grinding Gear Games\Path of Exile 2\logs`
    - **สำหรับ Steam:** `C:\Program Files (x86)\Steam\steamapps\common\Path of Exile 2\logs`
+   - **หรือที่อื่นก็เลือกเอา** `Path of Exile 2\logs`
 4. เลือกไฟล์ที่ชื่อว่า `Client.txt`
 5. จากนั้นโปรแกรมจะเริ่มทำงานและสามารถตรวจจับการเปลี่ยนแผนที่ของคุณได้อัตโนมัติ
 
