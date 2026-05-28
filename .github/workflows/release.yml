@@ -1,0 +1,30 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*' # ทำงานเมื่อมีการ push tag ที่ขึ้นต้นด้วย v เช่น v1.0.0
+  workflow_dispatch: # อนุญาตให้กดรันแบบ manual ได้ด้วย
+
+jobs:
+  release:
+    runs-on: windows-latest
+    permissions:
+      contents: write # จำเป็นสำหรับการสร้าง Release
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build and Publish with electron-builder
+        run: npx electron-builder --win -p always
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
