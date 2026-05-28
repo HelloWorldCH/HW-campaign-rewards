@@ -165,7 +165,7 @@ function createOverlayWindow() {
     height: winSize.height,
     transparent: true,
     frame: false,
-    thickFrame: false,
+    titleBarStyle: 'hidden',
     hasShadow: false,
     backgroundColor: '#00000000',
     alwaysOnTop: true,
