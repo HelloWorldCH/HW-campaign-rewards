@@ -155,6 +155,11 @@ function setupEventListeners() {
     }
   });
 
+  elements.settingLanguage.addEventListener('change', async (e) => {
+    await api.updateSettings({ language: e.target.value });
+    showToast('Language updated!');
+  });
+
   elements.btnSaveSettings.addEventListener('click', async () => {
     const updates = {
       language: elements.settingLanguage.value,
