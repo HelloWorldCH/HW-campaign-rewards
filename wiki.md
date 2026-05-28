@@ -17,8 +17,10 @@
 ### วิธีตั้งค่า Client.txt
 1. คลิกที่ปุ่มตั้งค่า ⚙️ (รูปเฟือง) ที่มุมขวาบนของโปรแกรม
 2. ในหัวข้อ **Client.txt Path** ให้คลิกที่ปุ่ม `Select File`
-3. ไปที่โฟลเดอร์เกม Path of Exile 2 ของคุณ (ปกติจะอยู่ที่ `C:\Program Files (x86)\Grinding Gear Games\Path of Exile 2\logs` หรือในโฟลเดอร์ Steam)
-4. เลือกไฟล์ `Client.txt`
+3. ไปที่โฟลเดอร์เกม Path of Exile 2 ของคุณ และเข้าไปที่โฟลเดอร์ `logs` โดยปกติจะอยู่ที่:
+   - **สำหรับตัวเกมปกติ (Standalone):** `C:\Program Files (x86)\Grinding Gear Games\Path of Exile 2\logs`
+   - **สำหรับ Steam:** `C:\Program Files (x86)\Steam\steamapps\common\Path of Exile 2\logs`
+4. เลือกไฟล์ที่ชื่อว่า `Client.txt`
 5. จากนั้นโปรแกรมจะเริ่มทำงานและสามารถตรวจจับการเปลี่ยนแผนที่ของคุณได้อัตโนมัติ
 
 ---
