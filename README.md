@@ -1,5 +1,9 @@
 # PoE2 Campaign Rewards Overlay
 
+[![GitHub Release](https://img.shields.io/github/v/release/HelloWorldCH/HW-campaign-rewards?style=flat-square)](https://github.com/HelloWorldCH/HW-campaign-rewards/releases)
+[![GitHub Downloads](https://img.shields.io/github/downloads/HelloWorldCH/HW-campaign-rewards/total?style=flat-square)](https://github.com/HelloWorldCH/HW-campaign-rewards/releases)
+[![GitHub License](https://img.shields.io/github/license/HelloWorldCH/HW-campaign-rewards?style=flat-square)](https://github.com/HelloWorldCH/HW-campaign-rewards/blob/main/LICENSE)
+
 โปรแกรม Overlay สำหรับบอกข้อมูลของรางวัลจากการทำเควส (Campaign Rewards) ในเกม Path of Exile 2 
 
 ## 📸 ภาพตัวอย่างโปรแกรม (Screenshots)
