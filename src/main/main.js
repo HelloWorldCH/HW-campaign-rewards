@@ -59,6 +59,9 @@ process.on('unhandledRejection', (reason) => {
 // Campaign data
 let campaignData = { meta: {}, summary: {}, areas: {} };
 
+// Run Guide data
+let runGuideData = [];
+
 function loadCampaignData(language = 'en') {
   try {
     const localesPath = path.join(__dirname, '..', 'data', 'locales', language);
@@ -91,6 +94,29 @@ function loadCampaignData(language = 'en') {
   }
 }
 
+function loadRunGuideData(language = 'en') {
+  try {
+    const localesPath = path.join(__dirname, '..', 'data', 'locales', language);
+    if (!fs.existsSync(localesPath)) return;
+
+    const guides = [];
+    const files = fs.readdirSync(localesPath);
+    for (const file of files) {
+      if (file.startsWith('runguide_') && file.endsWith('.json')) {
+        const guideData = JSON.parse(fs.readFileSync(path.join(localesPath, file), 'utf8'));
+        guides.push(guideData);
+      }
+    }
+
+    // Sort by act number
+    guides.sort((a, b) => a.act - b.act);
+    runGuideData = guides;
+    log('INFO', `Loaded ${guides.length} run guide(s) for language: ${language}`);
+  } catch (err) {
+    log('ERROR', 'Error loading run guide data:', err);
+  }
+}
+
 let mainWindow = null;
 let tray = null;
 let logWatcher = null;
@@ -103,6 +129,7 @@ app.whenReady().then(() => {
   settings.init(app.getPath('userData'));
 
   loadCampaignData(settings.get('language') || 'en');
+  loadRunGuideData(settings.get('language') || 'en');
 
   createOverlayWindow();
   createTray();
@@ -432,6 +459,7 @@ function setupIPC() {
 
     if (updates.language && updates.language !== oldLanguage) {
       loadCampaignData(updates.language);
+      loadRunGuideData(updates.language);
       if (mainWindow && !mainWindow.isDestroyed()) {
         mainWindow.webContents.send('language-changed');
       }
@@ -469,6 +497,33 @@ function setupIPC() {
       name,
       ...data
     }));
+  });
+
+  // Run Guide
+  ipcMain.handle('get-run-guide', () => {
+    return runGuideData;
+  });
+
+  ipcMain.handle('toggle-run-step', (event, stepId, completed) => {
+    const profiles = settings.get('profiles') || {};
+    const activeId = settings.get('activeProfileId') || 'Default Character';
+
+    if (!profiles[activeId]) {
+      profiles[activeId] = { id: activeId, name: activeId, completedRewards: [], completedRunSteps: [] };
+    }
+
+    let completedRunSteps = profiles[activeId].completedRunSteps || [];
+
+    if (completed) {
+      if (!completedRunSteps.includes(stepId)) completedRunSteps.push(stepId);
+    } else {
+      completedRunSteps = completedRunSteps.filter(id => id !== stepId);
+    }
+
+    profiles[activeId].completedRunSteps = completedRunSteps;
+    settings.set('profiles', profiles);
+
+    return completedRunSteps;
   });
 
   // Window controls

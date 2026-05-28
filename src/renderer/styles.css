@@ -147,6 +147,41 @@ html, body {
   text-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
 }
 
+.active-character-indicator {
+  margin-left: 12px;
+  font-size: 12px;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3px 20px 3px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  -webkit-app-region: no-drag; /* Makes it clickable */
+  outline: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: var(--transition);
+  max-width: 150px;
+  text-overflow: ellipsis;
+  /* Hide default arrow to look more like the original indicator */
+  appearance: none;
+  -webkit-appearance: none;
+  /* Add a subtle custom arrow */
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23b0aab8%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 6px top 50%;
+  background-size: 8px auto;
+}
+
+.active-character-indicator:hover, .active-character-indicator:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--gold-dim);
+}
+
+.active-character-indicator option {
+  background: #1a1425;
+  color: var(--text-primary);
+}
+
 .title-bar-right {
   display: flex;
   align-items: center;
@@ -167,6 +202,7 @@ html, body {
   align-items: center;
   justify-content: center;
   transition: var(--transition);
+  position: relative;
 }
 
 .title-btn:hover {
@@ -177,6 +213,48 @@ html, body {
 .title-btn.btn-close:hover {
   background: rgba(255, 82, 82, 0.3);
   color: var(--essential-red);
+}
+
+/* ─── Custom Tooltips ─── */
+.title-btn[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 130%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-5px);
+  background: var(--bg-card);
+  border: 1px solid var(--gold-dim);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 11px;
+  padding: 5px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.title-btn[data-tooltip]:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Prevent tooltip cutoff on the rightmost buttons */
+.title-btn.btn-close[data-tooltip]::after,
+.title-btn[data-tooltip="Minimize"]::after {
+  left: auto;
+  right: 0;
+  transform: translateX(0) translateY(-5px);
+}
+
+.title-btn.btn-close[data-tooltip]:hover::after,
+.title-btn[data-tooltip="Minimize"]:hover::after {
+  transform: translateX(0) translateY(0);
 }
 
 /* ─── Status Bar ─────────────────────────────────────────────────────────── */
@@ -989,4 +1067,390 @@ html, body {
 .toast.show {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Run Guide — Step-by-step Act Walkthrough
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Run Guide Header ──────────────────────────────────────────────────── */
+.run-guide-header {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border-light);
+  flex-shrink: 0;
+}
+
+.run-guide-header h2 {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.run-guide-act-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.run-guide-select {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 5px 8px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 11px;
+  outline: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.run-guide-select:focus {
+  border-color: var(--gold-dim);
+}
+
+.run-guide-select option {
+  background: #1a1425;
+  color: var(--text-primary);
+}
+
+.run-guide-progress-total {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  color: var(--gold);
+  padding: 3px 10px;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
+  border: 1px solid var(--gold-dim);
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+/* ─── Run Guide Container ───────────────────────────────────────────────── */
+.run-guide-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px;
+  scroll-behavior: smooth;
+}
+
+/* ─── Zone Card ─────────────────────────────────────────────────────────── */
+.run-zone-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  overflow: hidden;
+  transition: var(--transition);
+  animation: slideUp 0.35s ease-out backwards;
+}
+
+.run-zone-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: var(--bg-card-hover);
+}
+
+/* Current Zone — golden glow */
+.run-zone-card.current-zone {
+  border-color: var(--gold-dim);
+  box-shadow: 0 0 20px var(--gold-glow), inset 0 0 15px rgba(212, 175, 55, 0.04);
+  animation: slideUp 0.35s ease-out backwards, currentZonePulse 3s ease-in-out infinite;
+}
+
+@keyframes currentZonePulse {
+  0%, 100% {
+    border-color: var(--gold-dim);
+    box-shadow: 0 0 15px var(--gold-glow), inset 0 0 10px rgba(212, 175, 55, 0.03);
+  }
+  50% {
+    border-color: rgba(212, 175, 55, 0.45);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.2), inset 0 0 20px rgba(212, 175, 55, 0.06);
+  }
+}
+
+/* Zone Complete */
+.run-zone-card.zone-complete {
+  opacity: 0.6;
+  filter: grayscale(0.3);
+}
+
+.run-zone-card.zone-complete:hover {
+  opacity: 0.85;
+  filter: grayscale(0);
+}
+
+.run-zone-card.zone-complete .run-zone-progress-fill {
+  background: var(--utility-green) !important;
+}
+
+/* ─── Zone Header ───────────────────────────────────────────────────────── */
+.run-zone-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px 4px;
+}
+
+.run-zone-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.run-zone-order {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.08));
+  border: 1px solid var(--gold-dim);
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.run-zone-name {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.3px;
+}
+
+.run-zone-current-badge {
+  font-family: var(--font-body);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.15));
+  color: var(--gold);
+  border: 1px solid var(--gold-dim);
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+.run-zone-header-right {
+  display: flex;
+  align-items: center;
+}
+
+.run-zone-count {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-dim);
+}
+
+/* ─── Zone Progress Bar ─────────────────────────────────────────────────── */
+.run-zone-progress {
+  height: 2px;
+  background: rgba(255, 255, 255, 0.06);
+  margin: 2px 10px 4px;
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.run-zone-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--spirit-gold));
+  border-radius: 1px;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── Zone Steps Container ──────────────────────────────────────────────── */
+.run-zone-steps {
+  padding: 2px 6px 6px;
+}
+
+/* ─── Step Item ─────────────────────────────────────────────────────────── */
+.run-step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 5px 6px;
+  border-radius: 5px;
+  margin-bottom: 2px;
+  transition: var(--transition);
+  position: relative;
+  animation: slideUp 0.25s ease-out backwards;
+}
+
+.run-step-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Step completed state */
+.run-step-item.step-completed {
+  opacity: 0.45;
+}
+
+.run-step-item.step-completed:hover {
+  opacity: 0.7;
+}
+
+.run-step-item.step-completed .run-step-text {
+  text-decoration: line-through;
+  color: var(--text-dim);
+}
+
+/* ─── Step Checkbox ─────────────────────────────────────────────────────── */
+.run-step-checkbox-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1px;
+  flex-shrink: 0;
+}
+
+.run-step-checkbox {
+  width: 14px;
+  height: 14px;
+  accent-color: var(--gold);
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+/* ─── Step Icon ─────────────────────────────────────────────────────────── */
+.run-step-icon {
+  font-size: 13px;
+  flex-shrink: 0;
+  width: 18px;
+  text-align: center;
+  padding-top: 1px;
+}
+
+/* ─── Step Content ──────────────────────────────────────────────────────── */
+.run-step-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.run-step-text {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.run-step-detail {
+  font-size: 10px;
+  color: var(--text-dim);
+  font-style: italic;
+  margin-top: 1px;
+  line-height: 1.3;
+}
+
+/* ─── Action Type Accents ───────────────────────────────────────────────── */
+
+/* Boss — Red */
+.run-step-item.action-boss .run-step-text {
+  color: var(--essential-red);
+  font-weight: 600;
+}
+
+.run-step-item.action-boss:hover {
+  background: rgba(255, 82, 82, 0.06);
+}
+
+/* Checkpoint — Cyan */
+.run-step-item.action-checkpoint .run-step-text {
+  color: var(--cold-blue);
+}
+
+.run-step-item.action-checkpoint:hover {
+  background: rgba(78, 205, 196, 0.06);
+}
+
+/* Waypoint — Blue */
+.run-step-item.action-waypoint .run-step-text {
+  color: var(--blue-skill);
+}
+
+.run-step-item.action-waypoint:hover {
+  background: rgba(91, 141, 239, 0.06);
+}
+
+/* Enter — Green */
+.run-step-item.action-enter .run-step-text {
+  color: var(--utility-green);
+  font-weight: 600;
+}
+
+.run-step-item.action-enter:hover {
+  background: rgba(102, 187, 106, 0.06);
+}
+
+/* Explore — Purple */
+.run-step-item.action-explore .run-step-text {
+  color: var(--choice-purple);
+}
+
+.run-step-item.action-explore:hover {
+  background: rgba(187, 134, 252, 0.06);
+}
+
+/* Task — Amber/Orange */
+.run-step-item.action-task .run-step-text {
+  color: var(--recommended-amber);
+}
+
+.run-step-item.action-task:hover {
+  background: rgba(255, 171, 64, 0.06);
+}
+
+/* ─── Settings Group (existing fix) ─────────────────────────────────────── */
+.settings-group {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-light);
+}
+
+.settings-group h3 {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+
+.setting-item {
+  margin-bottom: 12px;
+}
+
+.setting-item label {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 5px;
+}
+
+.btn-secondary {
+  padding: 7px 14px;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 11px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 82, 82, 0.08);
+  border-color: rgba(255, 82, 82, 0.3);
+  color: var(--essential-red);
 }

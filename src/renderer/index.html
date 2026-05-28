@@ -16,13 +16,16 @@
       <div class="title-bar-left">
         <div class="title-logo">⚔</div>
         <h1 class="title-text">Campaign Rewards</h1>
-        <div class="active-character-indicator" id="activeCharacterIndicator" style="margin-left: 12px; font-size: 13px; color: var(--text-dim); background: rgba(255,255,255,0.05); padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">👤 Loading...</div>
+        <select class="active-character-indicator" id="activeCharacterIndicator">
+          <option>👤 Loading...</option>
+        </select>
       </div>
       <div class="title-bar-right">
-        <button id="btnAllRewards" class="title-btn" title="Browse All Rewards">📋</button>
-        <button id="btnSettings" class="title-btn" title="Settings">⚙️</button>
-        <button id="btnMinimize" class="title-btn" title="Minimize">─</button>
-        <button id="btnClose" class="title-btn btn-close" title="Hide (use hotkey to show)">✕</button>
+        <button id="btnRunGuide" class="title-btn" data-tooltip="Run Guide">🗺️</button>
+        <button id="btnAllRewards" class="title-btn" data-tooltip="All Rewards">📋</button>
+        <button id="btnSettings" class="title-btn" data-tooltip="Settings">⚙️</button>
+        <button id="btnMinimize" class="title-btn" data-tooltip="Minimize">─</button>
+        <button id="btnClose" class="title-btn btn-close" data-tooltip="Hide (use hotkey to show)">✕</button>
       </div>
     </header>
 
@@ -82,6 +85,22 @@
           </div>
         </div>
         <div id="allRewardsContainer" class="rewards-container scrollable"></div>
+      </div>
+
+      <!-- Run Guide View -->
+      <div id="runGuideView" class="view">
+        <div class="run-guide-header">
+          <h2>🗺️ <span id="runGuideTitle">Act 1 Run Guide</span></h2>
+          <div class="run-guide-act-selector">
+            <select id="runGuideActSelect" class="run-guide-select">
+              <option value="1">Act 1</option>
+            </select>
+            <div class="run-guide-progress-total">
+              <span id="runGuideTotalProgress">0/0</span>
+            </div>
+          </div>
+        </div>
+        <div id="runGuideContainer" class="run-guide-container"></div>
       </div>
 
       <!-- Settings View -->

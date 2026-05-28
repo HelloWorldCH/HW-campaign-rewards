@@ -29,6 +29,7 @@ const elements = {
   allRewardsContainer: document.getElementById('allRewardsContainer'),
   // Buttons
   btnAllRewards: document.getElementById('btnAllRewards'),
+  btnRunGuide: document.getElementById('btnRunGuide'),
   btnSettings: document.getElementById('btnSettings'),
   btnMinimize: document.getElementById('btnMinimize'),
   btnClose: document.getElementById('btnClose'),
@@ -49,7 +50,13 @@ const elements = {
   profileSelect: document.getElementById('profileSelect'),
   newProfileName: document.getElementById('newProfileName'),
   btnAddProfile: document.getElementById('btnAddProfile'),
-  btnDeleteProfile: document.getElementById('btnDeleteProfile')
+  btnDeleteProfile: document.getElementById('btnDeleteProfile'),
+  // Run Guide
+  runGuideView: document.getElementById('runGuideView'),
+  runGuideTitle: document.getElementById('runGuideTitle'),
+  runGuideActSelect: document.getElementById('runGuideActSelect'),
+  runGuideTotalProgress: document.getElementById('runGuideTotalProgress'),
+  runGuideContainer: document.getElementById('runGuideContainer')
 };
 
 // ─── State ──────────────────────────────────────────────────────────────────
@@ -57,7 +64,10 @@ let currentView = 'rewards';
 let currentArea = null;
 let allAreas = [];
 let completedRewards = [];
+let completedRunSteps = [];
 let isOnCharSelectScreen = false;
+let runGuideData = [];
+let currentRunGuideAct = 1;
 
 // ─── Initialize ─────────────────────────────────────────────────────────────
 async function init() {
@@ -72,6 +82,11 @@ async function init() {
   allAreas = await api.getAllAreas();
   populateTestDropdown(allAreas);
   renderAllRewards(allAreas);
+
+  // Load run guide data
+  runGuideData = await api.getRunGuide();
+  populateRunGuideActSelector();
+  renderRunGuide();
 
   // Set up event listeners
   setupEventListeners();
@@ -99,6 +114,16 @@ function setupEventListeners() {
 
   elements.btnSettings.addEventListener('click', () => {
     switchView(currentView === 'settings' ? 'rewards' : 'settings');
+  });
+
+  elements.btnRunGuide.addEventListener('click', () => {
+    switchView(currentView === 'runGuide' ? 'rewards' : 'runGuide');
+  });
+
+  // Run Guide act selector
+  elements.runGuideActSelect.addEventListener('change', (e) => {
+    currentRunGuideAct = parseInt(e.target.value);
+    renderRunGuide();
   });
 
   elements.btnMinimize.addEventListener('click', () => {
@@ -160,6 +185,15 @@ function setupEventListeners() {
     showToast('Profile Switched');
   });
 
+  if (elements.activeCharacterIndicator) {
+    elements.activeCharacterIndicator.addEventListener('change', async (e) => {
+      const profileId = e.target.value;
+      await api.switchProfile(profileId);
+      await loadProfiles();
+      showToast('Profile Switched');
+    });
+  }
+
   elements.btnImportCharacters.addEventListener('click', async () => {
     const accountName = elements.importAccountName.value.trim();
     if (!accountName) {
@@ -219,18 +253,30 @@ async function loadProfiles() {
     select.appendChild(option);
   });
 
+  // Update header character indicator (select)
+  if (elements.activeCharacterIndicator) {
+    elements.activeCharacterIndicator.innerHTML = '';
+    Object.values(profiles).forEach(p => {
+      const option = document.createElement('option');
+      option.value = p.id;
+      option.textContent = `👤 ${p.name}`;
+      if (p.id === activeProfileId) option.selected = true;
+      elements.activeCharacterIndicator.appendChild(option);
+    });
+  }
+
   // Load completed rewards for active profile
   const activeProfile = profiles[activeProfileId];
   completedRewards = activeProfile ? (activeProfile.completedRewards || []) : [];
-  
-  if (activeProfile && elements.activeCharacterIndicator) {
-    elements.activeCharacterIndicator.textContent = `👤 ${activeProfile.name}`;
-  }
+  completedRunSteps = activeProfile ? (activeProfile.completedRunSteps || []) : [];
 
   // Re-render current views if data is loaded
   if (allAreas.length > 0) {
     if (currentArea) updateAreaDisplay(currentArea);
-    renderAllRewards(allAreas); // will respect current filter due to inner filter logic or just re-render all
+    renderAllRewards(allAreas);
+  }
+  if (runGuideData.length > 0) {
+    renderRunGuide();
   }
 }
 
@@ -241,8 +287,12 @@ function setupIPCListeners() {
     isOnCharSelectScreen = false;
     elements.charSelectBanner.classList.add('hidden');
     updateAreaDisplay(data);
+    // Auto-scroll run guide if on that view
+    if (currentView === 'runGuide') {
+      scrollToCurrentZone(data.area);
+    }
     if (currentView !== 'rewards') {
-      switchView('rewards');
+      // Don't auto-switch view, just highlight in run guide
     }
   });
 
@@ -288,7 +338,7 @@ function setupIPCListeners() {
   // Quick-switch handler
   elements.charSelectQuickSwitch.addEventListener('change', async (e) => {
     const profileId = e.target.value;
-    await api.switchProfile(profileId);
+    await api.setActiveProfile(profileId);
     await loadProfiles();
     
     const { profiles } = await api.getProfiles();
@@ -326,6 +376,11 @@ function setupIPCListeners() {
         const filterVal = activeFilterBtn ? activeFilterBtn.dataset.filter : 'all';
         renderAllRewards(allAreas, filterVal);
       }
+
+      // Reload run guide
+      runGuideData = await api.getRunGuide();
+      populateRunGuideActSelector();
+      renderRunGuide();
     });
   }
 
@@ -340,6 +395,7 @@ function switchView(viewName) {
   elements.rewardsView.classList.remove('active');
   elements.allRewardsView.classList.remove('active');
   elements.settingsView.classList.remove('active');
+  elements.runGuideView.classList.remove('active');
 
   switch (viewName) {
     case 'rewards':
@@ -350,6 +406,10 @@ function switchView(viewName) {
       break;
     case 'settings':
       elements.settingsView.classList.add('active');
+      break;
+    case 'runGuide':
+      elements.runGuideView.classList.add('active');
+      renderRunGuide(); // re-render to highlight current zone
       break;
   }
 
@@ -604,7 +664,7 @@ function showToast(message, duration = 2000) {
   }, duration);
 }
 
-// ─── IPC message handlers from tray ─────────────────────────────────────────
+// ─── IPC message handlers from tray ─────────────────────────────────────
 if (api) {
   api.onShowAllRewards(() => {
     switchView('allRewards');
@@ -615,8 +675,247 @@ if (api) {
   });
 }
 
-// ─── Boot ───────────────────────────────────────────────────────────────────
+// ═══════════════════════════════════════════════════════════════════════════
+// Run Guide — Step-by-step Act Walkthrough
+// ═══════════════════════════════════════════════════════════════════════════
+
+function populateRunGuideActSelector() {
+  const select = elements.runGuideActSelect;
+  select.innerHTML = '';
+  runGuideData.forEach(guide => {
+    const option = document.createElement('option');
+    option.value = guide.act;
+    option.textContent = `Act ${guide.act}`;
+    if (guide.act === currentRunGuideAct) option.selected = true;
+    select.appendChild(option);
+  });
+}
+
+function renderRunGuide() {
+  const container = elements.runGuideContainer;
+  container.innerHTML = '';
+
+  const guide = runGuideData.find(g => g.act === currentRunGuideAct);
+  if (!guide) {
+    container.innerHTML = `
+      <div class="no-area-rewards">
+        <div class="no-area-rewards-icon">🗺️</div>
+        <p>No run guide data available</p>
+        <p class="hint">Run guide data not found for this act</p>
+      </div>
+    `;
+    return;
+  }
+
+  // Update title
+  elements.runGuideTitle.textContent = guide.title;
+
+  // Calculate total progress
+  let totalSteps = 0;
+  let totalCompleted = 0;
+
+  guide.zones.forEach(zone => {
+    totalSteps += zone.steps.length;
+    zone.steps.forEach(step => {
+      if (completedRunSteps.includes(step.id)) totalCompleted++;
+    });
+  });
+
+  elements.runGuideTotalProgress.textContent = `${totalCompleted}/${totalSteps}`;
+
+  // Render each zone
+  guide.zones.forEach((zone, zoneIndex) => {
+    const zoneCard = createZoneCard(zone, zoneIndex);
+    container.appendChild(zoneCard);
+  });
+
+  // Auto-scroll to current zone if we know the area
+  if (currentArea) {
+    setTimeout(() => scrollToCurrentZone(currentArea.area), 100);
+  }
+}
+
+function createZoneCard(zone, zoneIndex) {
+  const card = document.createElement('div');
+  card.className = 'run-zone-card';
+  card.dataset.zoneName = zone.mapName;
+  card.dataset.zoneIndex = zoneIndex;
+  card.id = `run-zone-${zoneIndex}-${zone.mapName.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}`;
+
+  // Check if this is the current zone
+  const isCurrentZone = currentArea && currentArea.area === zone.mapName;
+  if (isCurrentZone) {
+    card.classList.add('current-zone');
+  }
+
+  // Count completed steps
+  const completedCount = zone.steps.filter(s => completedRunSteps.includes(s.id)).length;
+  const totalCount = zone.steps.length;
+  const isZoneComplete = completedCount === totalCount;
+  if (isZoneComplete) {
+    card.classList.add('zone-complete');
+  }
+
+  const progressPercent = totalCount > 0 ? (completedCount / totalCount) * 100 : 0;
+
+  // Zone header
+  const header = document.createElement('div');
+  header.className = 'run-zone-header';
+  header.innerHTML = `
+    <div class="run-zone-header-left">
+      <span class="run-zone-order">${zone.order}</span>
+      <span class="run-zone-name">${zone.name}</span>
+      ${isCurrentZone ? '<span class="run-zone-current-badge">HERE</span>' : ''}
+    </div>
+    <div class="run-zone-header-right">
+      <span class="run-zone-count">${completedCount}/${totalCount}</span>
+    </div>
+  `;
+  card.appendChild(header);
+
+  // Progress bar
+  const progressBar = document.createElement('div');
+  progressBar.className = 'run-zone-progress';
+  progressBar.innerHTML = `<div class="run-zone-progress-fill" style="width: ${progressPercent}%"></div>`;
+  card.appendChild(progressBar);
+
+  // Steps
+  const stepsContainer = document.createElement('div');
+  stepsContainer.className = 'run-zone-steps';
+
+  zone.steps.forEach((step, stepIndex) => {
+    const stepEl = createStepItem(step, stepIndex, zone);
+    stepsContainer.appendChild(stepEl);
+  });
+
+  card.appendChild(stepsContainer);
+
+  // Animation delay
+  card.style.animationDelay = `${zoneIndex * 0.06}s`;
+
+  return card;
+}
+
+function createStepItem(step, stepIndex, zone) {
+  const item = document.createElement('div');
+  const isCompleted = completedRunSteps.includes(step.id);
+  item.className = `run-step-item action-${step.action}`;
+  if (isCompleted) item.classList.add('step-completed');
+  item.style.animationDelay = `${stepIndex * 0.04}s`;
+
+  item.innerHTML = `
+    <div class="run-step-checkbox-area">
+      <input type="checkbox" class="run-step-checkbox" data-step-id="${step.id}" ${isCompleted ? 'checked' : ''}>
+    </div>
+    <div class="run-step-icon">${step.icon}</div>
+    <div class="run-step-content">
+      <div class="run-step-text">${step.text}</div>
+      ${step.detail ? `<div class="run-step-detail">${step.detail}</div>` : ''}
+    </div>
+  `;
+
+  // Wire up checkbox
+  const checkbox = item.querySelector('.run-step-checkbox');
+  checkbox.addEventListener('change', async (e) => {
+    const checked = e.target.checked;
+    if (checked) {
+      item.classList.add('step-completed');
+      if (!completedRunSteps.includes(step.id)) completedRunSteps.push(step.id);
+    } else {
+      item.classList.remove('step-completed');
+      completedRunSteps = completedRunSteps.filter(id => id !== step.id);
+    }
+
+    await api.toggleRunStep(step.id, checked);
+
+    // Update zone progress
+    updateZoneProgress(zone, parseInt(card.dataset.zoneIndex));
+    updateTotalProgress();
+  });
+
+  return item;
+}
+
+function updateZoneProgress(zone, zoneIndex) {
+  const card = document.getElementById(`run-zone-${zoneIndex}-${zone.mapName.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}`);
+  if (!card) return;
+
+  const completedCount = zone.steps.filter(s => completedRunSteps.includes(s.id)).length;
+  const totalCount = zone.steps.length;
+  const progressPercent = totalCount > 0 ? (completedCount / totalCount) * 100 : 0;
+
+  // Update count text
+  const countEl = card.querySelector('.run-zone-count');
+  if (countEl) countEl.textContent = `${completedCount}/${totalCount}`;
+
+  // Update progress bar
+  const fillEl = card.querySelector('.run-zone-progress-fill');
+  if (fillEl) fillEl.style.width = `${progressPercent}%`;
+
+  // Update zone-complete class
+  if (completedCount === totalCount) {
+    card.classList.add('zone-complete');
+  } else {
+    card.classList.remove('zone-complete');
+  }
+}
+
+function updateTotalProgress() {
+  const guide = runGuideData.find(g => g.act === currentRunGuideAct);
+  if (!guide) return;
+
+  let totalSteps = 0;
+  let totalCompleted = 0;
+  guide.zones.forEach(zone => {
+    totalSteps += zone.steps.length;
+    zone.steps.forEach(step => {
+      if (completedRunSteps.includes(step.id)) totalCompleted++;
+    });
+  });
+
+  elements.runGuideTotalProgress.textContent = `${totalCompleted}/${totalSteps}`;
+}
+
+function scrollToCurrentZone(areaName) {
+  // Find all cards for this area
+  const cards = document.querySelectorAll(`.run-zone-card[data-zone-name="${areaName}"]`);
+  
+  // Find the first card that is not fully completed, or just use the last one if all are completed
+  let targetCard = null;
+  for (const c of cards) {
+    if (!c.classList.contains('zone-complete')) {
+      targetCard = c;
+      break;
+    }
+  }
+  if (!targetCard && cards.length > 0) {
+    targetCard = cards[cards.length - 1];
+  }
+
+  if (targetCard) {
+    // Remove previous highlights
+    document.querySelectorAll('.run-zone-card.current-zone').forEach(c => {
+      c.classList.remove('current-zone');
+      const badge = c.querySelector('.run-zone-current-badge');
+      if (badge) badge.remove();
+    });
+
+    // Add current highlight
+    targetCard.classList.add('current-zone');
+    const headerLeft = targetCard.querySelector('.run-zone-header-left');
+    if (headerLeft && !headerLeft.querySelector('.run-zone-current-badge')) {
+      const badge = document.createElement('span');
+      badge.className = 'run-zone-current-badge';
+      badge.textContent = 'HERE';
+      headerLeft.appendChild(badge);
+    }
+
+    // Smooth scroll
+    targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
+
+// ─── Boot ───────────────────────────────────────────────────────────────
 init().catch(err => {
   console.error('[App] Init error:', err);
 });
-

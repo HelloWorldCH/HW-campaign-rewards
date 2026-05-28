@@ -1,0 +1,161 @@
+{
+  "act": 1,
+  "title": "Act 1 Run Guide",
+  "zones": [
+    {
+      "name": "Clearfell",
+      "mapName": "Clearfell",
+      "order": 1,
+      "steps": [
+        { "id": "a1_clearfell_1", "action": "explore", "icon": "🏕️", "text": "Walk to find Camp → Open chest", "detail": "" },
+        { "id": "a1_clearfell_2", "action": "checkpoint", "icon": "🔵", "text": "Go up to Checkpoint near THE GRELWOOD", "detail": "" },
+        { "id": "a1_clearfell_3", "action": "boss", "icon": "💀", "text": "Turn top-left, kill Boss: BEIRA OF THE ROTTEN PACK", "detail": "+10% Cold Resistance 📌" },
+        { "id": "a1_clearfell_4", "action": "enter", "icon": "🚪", "text": "Go up to enter THE GRELWOOD", "detail": "" }
+      ]
+    },
+    {
+      "name": "The Grelwood (Part 1)",
+      "mapName": "The Grelwood",
+      "order": 2,
+      "steps": [
+        { "id": "a1_grelwood_1", "action": "explore", "icon": "🏚️", "text": "Find the Hut → Kill mini-boss: FORGOTTEN WITCH", "detail": "" },
+        { "id": "a1_grelwood_2", "action": "checkpoint", "icon": "🌳", "text": "Find Tree → Activate Checkpoint", "detail": "" },
+        { "id": "a1_grelwood_3", "action": "enter", "icon": "🚪", "text": "Run to enter THE RED VALE", "detail": "" }
+      ]
+    },
+    {
+      "name": "The Red Vale",
+      "mapName": "The Red Vale",
+      "order": 3,
+      "steps": [
+        { "id": "a1_redvale_1", "action": "task", "icon": "⚔️", "text": "Clear 3 Pillars → Waypoint back to Town", "detail": "" }
+      ]
+    },
+    {
+      "name": "The Grelwood (Part 2)",
+      "mapName": "The Grelwood",
+      "order": 4,
+      "steps": [
+        { "id": "a1_grelwood_4", "action": "waypoint", "icon": "🔷", "text": "Waypoint to THE GRELWOOD", "detail": "" },
+        { "id": "a1_grelwood_5", "action": "explore", "icon": "🌳", "text": "Plant the Tree → Run to THE GRIM TANGLE", "detail": "" }
+      ]
+    },
+    {
+      "name": "The Grim Tangle (Part 1)",
+      "mapName": "The Grim Tangle",
+      "order": 5,
+      "steps": [
+        { "id": "a1_grimtangle_1", "action": "waypoint", "icon": "🔷", "text": "Get Waypoint → Return to Town to talk to UNA", "detail": "" },
+        { "id": "a1_grimtangle_2", "action": "explore", "icon": "🔷", "text": "Waypoint to THE GRIM TANGLE → Talk to UNA", "detail": "Reset your instances if needed" },
+        { "id": "a1_grimtangle_3", "action": "checkpoint", "icon": "🔵", "text": "Walk to unlock Checkpoint and find boss", "detail": "" },
+        { "id": "a1_grimtangle_4", "action": "boss", "icon": "💀", "text": "Kill Boss: THE ROTTEN DRUID", "detail": "" }
+      ]
+    },
+    {
+      "name": "Cemetery of the Eternals (Part 1)",
+      "mapName": "Cemetery of the Eternals",
+      "order": 6,
+      "steps": [
+        { "id": "a1_cemetery_1", "action": "waypoint", "icon": "🔷", "text": "Waypoint to CEMETERY OF THE ETERNALS", "detail": "" },
+        { "id": "a1_cemetery_2", "action": "enter", "icon": "🚪", "text": "Enter TOMB OF THE CONSORT first", "detail": "" }
+      ]
+    },
+    {
+      "name": "Tomb of the Consort",
+      "mapName": "Tomb of the Consort",
+      "order": 7,
+      "steps": [
+        { "id": "a1_tomb_1", "action": "boss", "icon": "💀", "text": "Kill Mini-boss and Main Boss", "detail": "" },
+        { "id": "a1_tomb_2", "action": "enter", "icon": "🚪", "text": "Waypoint out and go to MAUSOLEUM OF THE PRAETOR", "detail": "" }
+      ]
+    },
+    {
+      "name": "Mausoleum of the Praetor",
+      "mapName": "Mausoleum of the Praetor",
+      "order": 8,
+      "steps": [
+        { "id": "a1_mausoleum_1", "action": "boss", "icon": "💀", "text": "Kill Main Boss", "detail": "" }
+      ]
+    },
+    {
+      "name": "Cemetery of the Eternals (Part 2)",
+      "mapName": "Cemetery of the Eternals",
+      "order": 9,
+      "steps": [
+        { "id": "a1_cemetery_3", "action": "waypoint", "icon": "🔷", "text": "Waypoint back to CEMETERY OF THE ETERNALS", "detail": "Open the door and reset instance" },
+        { "id": "a1_cemetery_4", "action": "boss", "icon": "💀", "text": "Kill Boss → Open map → Waypoint to Town", "detail": "" }
+      ]
+    },
+    {
+      "name": "Hunting Grounds (Part 1)",
+      "mapName": "Hunting Grounds",
+      "order": 10,
+      "steps": [
+        { "id": "a1_hunting_1", "action": "boss", "icon": "💀", "text": "Kill Mini-boss and Main Boss: THE CROWBELL", "detail": "+ PASSIVE SKILL POINT 📌" }
+      ]
+    },
+    {
+      "name": "Ogham Farmlands",
+      "mapName": "Ogham Farmlands",
+      "order": 11,
+      "steps": [
+        { "id": "a1_farmlands_1", "action": "enter", "icon": "🚪", "text": "Go to OGHAM FARMLAND", "detail": "" },
+        { "id": "a1_farmlands_2", "action": "explore", "icon": "🏚️", "text": "Find UNA's Lute", "detail": "" },
+        { "id": "a1_farmlands_3", "action": "waypoint", "icon": "🔷", "text": "Waypoint to OGHAM VILLAGE", "detail": "" }
+      ]
+    },
+    {
+      "name": "Town / Ogham Village",
+      "mapName": "Ogham Village",
+      "order": 12,
+      "steps": [
+        { "id": "a1_town_1", "action": "waypoint", "icon": "🔷", "text": "Waypoint back to Town → Talk to UNA", "detail": "+ PASSIVE SKILL POINT 📌" }
+      ]
+    },
+    {
+      "name": "Hunting Grounds (Part 2)",
+      "mapName": "Hunting Grounds",
+      "order": 13,
+      "steps": [
+        { "id": "a1_hunting_2", "action": "waypoint", "icon": "🔷", "text": "Go to HUNTING GROUNDS", "detail": "" },
+        { "id": "a1_hunting_3", "action": "enter", "icon": "🚪", "text": "Go to FREYTHORN", "detail": "" }
+      ]
+    },
+    {
+      "name": "Freythorn",
+      "mapName": "Freythorn",
+      "order": 14,
+      "steps": [
+        { "id": "a1_freythorn_1", "action": "task", "icon": "⚔️", "text": "Clear the map", "detail": "+ 30 SPIRIT 📌" }
+      ]
+    },
+    {
+      "name": "Ogham Village",
+      "mapName": "Ogham Village",
+      "order": 15,
+      "steps": [
+        { "id": "a1_village_1", "action": "waypoint", "icon": "🔷", "text": "Waypoint to OGHAM VILLAGE", "detail": "" },
+        { "id": "a1_village_2", "action": "explore", "icon": "🏃", "text": "Find quest items → Kill Boss", "detail": "" }
+      ]
+    },
+    {
+      "name": "The Manor Ramparts",
+      "mapName": "The Manor Ramparts",
+      "order": 16,
+      "steps": [
+        { "id": "a1_ramparts_1", "action": "enter", "icon": "🚪", "text": "Go to THE MANOR RAMPARTS", "detail": "" },
+        { "id": "a1_ramparts_2", "action": "enter", "icon": "🚪", "text": "Continue to OGHAM MANOR", "detail": "" }
+      ]
+    },
+    {
+      "name": "Ogham Manor",
+      "mapName": "Ogham Manor",
+      "order": 17,
+      "steps": [
+        { "id": "a1_manor_1", "action": "explore", "icon": "🏃", "text": "Find the way down", "detail": "Keep going deeper" },
+        { "id": "a1_manor_2", "action": "boss", "icon": "💀", "text": "Kill Mini-boss and Dog Boss: CANDLEMASS THE LIVING RITE", "detail": "+20 MAXIMUM LIFE 📌" },
+        { "id": "a1_manor_3", "action": "enter", "icon": "🎉", "text": "Proceed to Act 2", "detail": "" }
+      ]
+    }
+  ]
+}

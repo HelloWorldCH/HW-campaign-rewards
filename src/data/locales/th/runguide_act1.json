@@ -1,0 +1,161 @@
+{
+  "act": 1,
+  "title": "วิธีวิ่ง Act 1",
+  "zones": [
+    {
+      "name": "Clearfell",
+      "mapName": "Clearfell",
+      "order": 1,
+      "steps": [
+        { "id": "a1_clearfell_1", "action": "explore", "icon": "🏕️", "text": "เดินหาแคมป์ เปิดกล่อง", "detail": "" },
+        { "id": "a1_clearfell_2", "action": "checkpoint", "icon": "🔵", "text": "เดินขึ้นบน ไปเช็คพ้อย แถว THE GRELWOOD", "detail": "" },
+        { "id": "a1_clearfell_3", "action": "boss", "icon": "💀", "text": "เลี้ยวไปซ้ายบน ตีบอส: BEIRA OF THE ROTTEN PACK", "detail": "+10% Cold Resistance 📌" },
+        { "id": "a1_clearfell_4", "action": "enter", "icon": "🚪", "text": "เดินขึ้นบนไป THE GRELWOOD", "detail": "" }
+      ]
+    },
+    {
+      "name": "The Grelwood (Part 1)",
+      "mapName": "The Grelwood",
+      "order": 2,
+      "steps": [
+        { "id": "a1_grelwood_1", "action": "explore", "icon": "🏚️", "text": "เดินหากระท่อม ตีบอสเล็ก: FORGOTTEN WITCH", "detail": "" },
+        { "id": "a1_grelwood_2", "action": "checkpoint", "icon": "🌳", "text": "เดินหาต้นไม้ เช็คพ้อย", "detail": "" },
+        { "id": "a1_grelwood_3", "action": "enter", "icon": "🚪", "text": "วิ่งไปเข้าแมพ THE RED VALE", "detail": "" }
+      ]
+    },
+    {
+      "name": "The Red Vale",
+      "mapName": "The Red Vale",
+      "order": 3,
+      "steps": [
+        { "id": "a1_redvale_1", "action": "task", "icon": "⚔️", "text": "เคลีย 3 เสา วาปกลับ เมือง", "detail": "" }
+      ]
+    },
+    {
+      "name": "The Grelwood (Part 2)",
+      "mapName": "The Grelwood",
+      "order": 4,
+      "steps": [
+        { "id": "a1_grelwood_4", "action": "waypoint", "icon": "🔷", "text": "วาปไป THE GRELWOOD", "detail": "" },
+        { "id": "a1_grelwood_5", "action": "explore", "icon": "🌳", "text": "ปักต้นไม้ วิ่งหา THE GRIM TANGLE", "detail": "" }
+      ]
+    },
+    {
+      "name": "The Grim Tangle (Part 1)",
+      "mapName": "The Grim Tangle",
+      "order": 5,
+      "steps": [
+        { "id": "a1_grimtangle_1", "action": "waypoint", "icon": "🔷", "text": "ได้เวย์พ้อย วาปกลับเมือง ไปคุย UNA", "detail": "" },
+        { "id": "a1_grimtangle_2", "action": "explore", "icon": "🔷", "text": "วาปไป THE GRIM TANGLE คุย UNA Reset ตัวเอง", "detail": "" },
+        { "id": "a1_grimtangle_3", "action": "checkpoint", "icon": "🔵", "text": "เดินไปเปิด เช็คพ้อย และหาบอส", "detail": "" },
+        { "id": "a1_grimtangle_4", "action": "boss", "icon": "💀", "text": "ตีบอส: THE ROTTEN DRUID", "detail": "" }
+      ]
+    },
+    {
+      "name": "Cemetery of the Eternals (Part 1)",
+      "mapName": "Cemetery of the Eternals",
+      "order": 6,
+      "steps": [
+        { "id": "a1_cemetery_1", "action": "waypoint", "icon": "🔷", "text": "วาปไป CEMETERY OF THE ETERNALS", "detail": "" },
+        { "id": "a1_cemetery_2", "action": "enter", "icon": "🚪", "text": "เข้า TOMB OF THE CONSORT ก่อน", "detail": "" }
+      ]
+    },
+    {
+      "name": "Tomb of the Consort",
+      "mapName": "Tomb of the Consort",
+      "order": 7,
+      "steps": [
+        { "id": "a1_tomb_1", "action": "boss", "icon": "💀", "text": "ตีบอสเล็ก และบอสใหญ่ใน TOMB OF THE CONSORT", "detail": "" },
+        { "id": "a1_tomb_2", "action": "enter", "icon": "🚪", "text": "วาป ออกและไปที่ แมพ MAUSOLEUM OF THE PRAETOR", "detail": "" }
+      ]
+    },
+    {
+      "name": "Mausoleum of the Praetor",
+      "mapName": "Mausoleum of the Praetor",
+      "order": 8,
+      "steps": [
+        { "id": "a1_mausoleum_1", "action": "boss", "icon": "💀", "text": "ตีบอสใหญ่แมพ MAUSOLEUM OF THE PRAETOR", "detail": "" }
+      ]
+    },
+    {
+      "name": "Cemetery of the Eternals (Part 2)",
+      "mapName": "Cemetery of the Eternals",
+      "order": 9,
+      "steps": [
+        { "id": "a1_cemetery_3", "action": "waypoint", "icon": "🔷", "text": "วาปกลับไป เปิดประตูที่ CEMETERY OF THE ETERNALS และรีตัว", "detail": "" },
+        { "id": "a1_cemetery_4", "action": "boss", "icon": "💀", "text": "ตีบอส เดินเข้าไปเปิดแมพ วาปกลับเมือง", "detail": "" }
+      ]
+    },
+    {
+      "name": "Hunting Grounds (Part 1)",
+      "mapName": "Hunting Grounds",
+      "order": 10,
+      "steps": [
+        { "id": "a1_hunting_1", "action": "boss", "icon": "💀", "text": "ไปที่ HUNTING GROUNDS ตีบอสเล็ก และ ใหญ่: THE CROWBELL", "detail": "+ PASSIVE SKILL POINT 📌" }
+      ]
+    },
+    {
+      "name": "Ogham Farmlands",
+      "mapName": "Ogham Farmlands",
+      "order": 11,
+      "steps": [
+        { "id": "a1_farmlands_1", "action": "enter", "icon": "🚪", "text": "ไปแมพ OGHAM FARMLAND", "detail": "" },
+        { "id": "a1_farmlands_2", "action": "explore", "icon": "🏚️", "text": "หา ลูท ของ UNA", "detail": "" },
+        { "id": "a1_farmlands_3", "action": "waypoint", "icon": "🔷", "text": "วาปไป OGHAM VILLAGE", "detail": "" }
+      ]
+    },
+    {
+      "name": "Town / Ogham Village",
+      "mapName": "Ogham Village",
+      "order": 12,
+      "steps": [
+        { "id": "a1_town_1", "action": "waypoint", "icon": "🔷", "text": "วาป กลับเมือง คุย UNA", "detail": "+ PASSIVE SKILL POINT 📌" }
+      ]
+    },
+    {
+      "name": "Hunting Grounds (Part 2)",
+      "mapName": "Hunting Grounds",
+      "order": 13,
+      "steps": [
+        { "id": "a1_hunting_2", "action": "waypoint", "icon": "🔷", "text": "ไป HUNTING GROUNDS", "detail": "" },
+        { "id": "a1_hunting_3", "action": "enter", "icon": "🚪", "text": "ไป FREYTHORN", "detail": "" }
+      ]
+    },
+    {
+      "name": "Freythorn",
+      "mapName": "Freythorn",
+      "order": 14,
+      "steps": [
+        { "id": "a1_freythorn_1", "action": "task", "icon": "⚔️", "text": "ล้างแมพ FREYTHORN", "detail": "+ 30 SPIRIT 📌" }
+      ]
+    },
+    {
+      "name": "Ogham Village",
+      "mapName": "Ogham Village",
+      "order": 15,
+      "steps": [
+        { "id": "a1_village_1", "action": "waypoint", "icon": "🔷", "text": "วาปไป OGHAM VILLAGE", "detail": "" },
+        { "id": "a1_village_2", "action": "explore", "icon": "🏃", "text": "หาของเควส ตีบอส", "detail": "" }
+      ]
+    },
+    {
+      "name": "The Manor Ramparts",
+      "mapName": "The Manor Ramparts",
+      "order": 16,
+      "steps": [
+        { "id": "a1_ramparts_1", "action": "enter", "icon": "🚪", "text": "ไป THE MANOR RAMPARTS", "detail": "" },
+        { "id": "a1_ramparts_2", "action": "enter", "icon": "🚪", "text": "ไป OGHAM MANOR", "detail": "" }
+      ]
+    },
+    {
+      "name": "Ogham Manor",
+      "mapName": "Ogham Manor",
+      "order": 17,
+      "steps": [
+        { "id": "a1_manor_1", "action": "explore", "icon": "🏃", "text": "หาทางลงเรื่อยๆ", "detail": "" },
+        { "id": "a1_manor_2", "action": "boss", "icon": "💀", "text": "ตีเล็ก + บอสหมา: CANDLEMASS THE LIVING RITE", "detail": "+20 MAXIMUM LIFE 📌" },
+        { "id": "a1_manor_3", "action": "enter", "icon": "🎉", "text": "ไปแอ็ค สอง", "detail": "" }
+      ]
+    }
+  ]
+}

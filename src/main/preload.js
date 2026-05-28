@@ -56,6 +56,10 @@ contextBridge.exposeInMainWorld('poeOverlay', {
   // All areas list
   getAllAreas: () => ipcRenderer.invoke('get-all-areas'),
 
+  // Run Guide
+  getRunGuide: () => ipcRenderer.invoke('get-run-guide'),
+  toggleRunStep: (stepId, completed) => ipcRenderer.invoke('toggle-run-step', stepId, completed),
+
   // Tray menu events
   onShowAllRewards: (callback) => {
     ipcRenderer.on('show-all-rewards', () => callback());
