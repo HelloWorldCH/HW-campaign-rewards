@@ -21,6 +21,10 @@ contextBridge.exposeInMainWorld('poeOverlay', {
     ipcRenderer.on('watcher-error', (event, error) => callback(error));
   },
 
+  // App Info
+  getAppVersion: () => ipcRenderer.invoke('get-app-version'),
+  openExternal: (url) => ipcRenderer.send('open-external', url),
+
   // Settings
   getSettings: () => ipcRenderer.invoke('get-settings'),
   updateSettings: (settings) => ipcRenderer.invoke('update-settings', settings),

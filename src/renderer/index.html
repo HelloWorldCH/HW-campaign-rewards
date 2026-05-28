@@ -115,6 +115,17 @@
         <div class="settings-panel">
           <h2 class="settings-title">⚙️ Settings</h2>
 
+          <div class="setting-group" style="background: rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 6px; margin-bottom: 15px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div><strong style="color: var(--text-bright);">Version:</strong> <span id="appVersionDisplay">Loading...</span></div>
+              <button id="btnCheckUpdate" class="setting-btn" style="font-size: 12px; padding: 4px 8px;">Check Update</button>
+            </div>
+            <div id="updateContainer" class="hidden" style="margin-top: 10px; font-size: 13px; color: var(--passive-point);">
+              <span id="updateMessage">✨ New version available!</span>
+              <a href="#" id="updateLink" style="color: var(--highlight); margin-left: 8px; text-decoration: underline; cursor: pointer;">Download Now</a>
+            </div>
+          </div>
+
           <div class="setting-group">
             <label class="setting-label">Language / ภาษา</label>
             <select id="settingLanguage" class="setting-select">

@@ -165,6 +165,9 @@ function createOverlayWindow() {
     height: winSize.height,
     transparent: true,
     frame: false,
+    thickFrame: false,
+    hasShadow: false,
+    backgroundColor: '#00000000',
     alwaysOnTop: true,
     skipTaskbar: true,
     show: true,
@@ -447,6 +450,12 @@ function startLogWatcher() {
 // ─── IPC Handlers ───────────────────────────────────────────────────────────
 
 function setupIPC() {
+  // App info
+  ipcMain.handle('get-app-version', () => app.getVersion());
+  ipcMain.on('open-external', (event, url) => {
+    require('electron').shell.openExternal(url);
+  });
+
   // Settings
   ipcMain.handle('get-settings', () => settings.getAll());
 

@@ -38,6 +38,11 @@ const elements = {
   btnMinimize: document.getElementById('btnMinimize'),
   btnClose: document.getElementById('btnClose'),
   // Settings
+  appVersionDisplay: document.getElementById('appVersionDisplay'),
+  btnCheckUpdate: document.getElementById('btnCheckUpdate'),
+  updateContainer: document.getElementById('updateContainer'),
+  updateMessage: document.getElementById('updateMessage'),
+  updateLink: document.getElementById('updateLink'),
   settingLanguage: document.getElementById('settingLanguage'),
   settingLogPath: document.getElementById('settingLogPath'),
   btnBrowseLog: document.getElementById('btnBrowseLog'),
@@ -91,6 +96,13 @@ async function init() {
   runGuideData = await api.getRunGuide();
   populateRunGuideActSelector();
   renderRunGuide();
+
+  // Show version and check for updates
+  if (api.getAppVersion) {
+    const version = await api.getAppVersion();
+    if (elements.appVersionDisplay) elements.appVersionDisplay.textContent = version;
+    checkForUpdates(version, true); // silent check
+  }
 
   // Set up event listeners
   setupEventListeners();
@@ -173,6 +185,23 @@ function setupEventListeners() {
   });
 
   // Test area
+  elements.btnCheckUpdate.addEventListener('click', async () => {
+    if (api.getAppVersion) {
+      elements.btnCheckUpdate.textContent = 'Checking...';
+      const version = await api.getAppVersion();
+      await checkForUpdates(version, false);
+      elements.btnCheckUpdate.textContent = 'Check Update';
+    }
+  });
+
+  elements.updateLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    const url = e.currentTarget.href;
+    if (url && url !== '#' && api.openExternal) {
+      api.openExternal(url);
+    }
+  });
+
   elements.btnTestArea.addEventListener('click', () => {
     const area = elements.testAreaSelect.value;
     if (area) {
@@ -701,6 +730,49 @@ if (api) {
   api.onShowSettings(() => {
     switchView('settings');
   });
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// Update Checker
+// ═══════════════════════════════════════════════════════════════════════════
+
+async function checkForUpdates(currentVersion, silent = false) {
+  try {
+    const response = await fetch('https://api.github.com/repos/HelloWorldCH/HW-campaign-rewards/releases/latest');
+    if (!response.ok) throw new Error('Network response was not ok');
+    const data = await response.json();
+    const latestVersion = data.tag_name.replace('v', '');
+    const current = currentVersion.replace('v', '');
+
+    if (latestVersion !== current && compareVersions(latestVersion, current) > 0) {
+      if (elements.updateContainer) {
+        elements.updateContainer.classList.remove('hidden');
+        elements.updateMessage.textContent = `✨ New version v${latestVersion} available!`;
+        elements.updateLink.href = data.html_url;
+      }
+      if (!silent) showToast(`Update v${latestVersion} is available!`);
+    } else {
+      if (elements.updateContainer) {
+        elements.updateContainer.classList.add('hidden');
+      }
+      if (!silent) showToast('You are using the latest version.');
+    }
+  } catch (error) {
+    console.error('Failed to check for updates:', error);
+    if (!silent) showToast('Failed to check for updates.');
+  }
+}
+
+function compareVersions(v1, v2) {
+  const parts1 = v1.split('.').map(Number);
+  const parts2 = v2.split('.').map(Number);
+  for (let i = 0; i < Math.max(parts1.length, parts2.length); i++) {
+    const a = parts1[i] || 0;
+    const b = parts2[i] || 0;
+    if (a > b) return 1;
+    if (a < b) return -1;
+  }
+  return 0;
 }
 
 // ═══════════════════════════════════════════════════════════════════════════

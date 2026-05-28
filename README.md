@@ -3,8 +3,11 @@
 [![GitHub Release](https://img.shields.io/github/v/release/HelloWorldCH/HW-campaign-rewards?style=flat-square)](https://github.com/HelloWorldCH/HW-campaign-rewards/releases)
 [![GitHub Downloads](https://img.shields.io/github/downloads/HelloWorldCH/HW-campaign-rewards/total?style=flat-square)](https://github.com/HelloWorldCH/HW-campaign-rewards/releases)
 [![GitHub License](https://img.shields.io/github/license/HelloWorldCH/HW-campaign-rewards?style=flat-square)](https://github.com/HelloWorldCH/HW-campaign-rewards/blob/main/LICENSE)
+[![Discord](https://img.shields.io/badge/Discord-Join_Community-7289da?style=flat-square&logo=discord)](https://discord.gg/hJMWSMRckJ)
 
 โปรแกรม Overlay สำหรับบอกข้อมูลของรางวัลจากการทำเควส (Campaign Rewards) ในเกม Path of Exile 2 
+
+💬 **เข้าร่วมพูดคุย แจ้งปัญหา หรือติดตามอัปเดตได้ที่ Discord:** [https://discord.gg/hJMWSMRckJ](https://discord.gg/hJMWSMRckJ)
 
 ## 📸 ภาพตัวอย่างโปรแกรม (Screenshots)
 
