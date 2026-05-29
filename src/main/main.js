@@ -680,6 +680,17 @@ function setupIPC() {
     }
   });
 
+  // Programmatic focus for text inputs
+  ipcMain.on('focus-window', () => {
+    try {
+      if (mainWindow && !mainWindow.isDestroyed()) {
+        mainWindow.focus();
+      }
+    } catch (err) {
+      log('ERROR', 'focus-window error:', err);
+    }
+  });
+
   // Mouse events for click-through
   ipcMain.on('set-ignore-mouse-events', (event, ignore, options) => {
     try {

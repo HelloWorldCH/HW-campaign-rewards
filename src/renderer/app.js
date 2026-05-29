@@ -1019,3 +1019,12 @@ function scrollToCurrentZone(areaName) {
 init().catch(err => {
   console.error('[App] Init error:', err);
 });
+
+// Force focus for text inputs on Windows when skipTaskbar is true
+document.addEventListener('mousedown', (e) => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') {
+    if (window.poeOverlay && window.poeOverlay.focusWindow) {
+      window.poeOverlay.focusWindow();
+    }
+  }
+});
