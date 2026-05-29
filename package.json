@@ -32,12 +32,12 @@
       "assets/**/*"
     ],
     "portable": {
-      "artifactName": "PoE2-Campaign-Rewards-Portable-${version}.exe"
+      "artifactName": "PoE2-Campaign-Rewards-Portable.exe"
     },
     "nsis": {
       "oneClick": true,
       "allowToChangeInstallationDirectory": false,
-      "artifactName": "PoE2-Campaign-Rewards-Setup-${version}.exe"
+      "artifactName": "PoE2-Campaign-Rewards-Setup.exe"
     }
   }
 }
