@@ -1,8 +1,11 @@
 {
   "name": "hw-poe2-campaign-rewards",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "PoE2 Campaign Rewards Overlay — Shows campaign rewards for the current area in Path of Exile 2",
-  "repository": "HelloWorldCH/HW-campaign-rewards",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HelloWorldCH/HW-campaign-rewards.git"
+  },
   "main": "src/main/main.js",
   "scripts": {
     "dev": "electron .",
@@ -36,8 +39,5 @@
       "allowToChangeInstallationDirectory": false,
       "artifactName": "PoE2-Campaign-Rewards-Setup-${version}.exe"
     }
-  },
-  "dependencies": {
-    "electron-overlay-window": "^4.1.0"
   }
 }
