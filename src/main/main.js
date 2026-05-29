@@ -165,7 +165,7 @@ function createOverlayWindow() {
     height: winSize.height,
     transparent: true,
     frame: false,
-    focusable: false,
+    focusable: true,
     roundedCorners: false,
     hasShadow: false,
     backgroundColor: '#00000000',

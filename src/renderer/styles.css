@@ -880,6 +880,9 @@ html, body {
   font-size: 12px;
   outline: none;
   transition: var(--transition);
+  user-select: text;
+  -webkit-user-select: text;
+  cursor: text;
 }
 
 .setting-input:focus {
