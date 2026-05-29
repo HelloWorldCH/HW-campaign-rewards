@@ -45,7 +45,6 @@ contextBridge.exposeInMainWorld('poeOverlay', {
   toggleCompact: () => ipcRenderer.invoke('toggle-compact'),
   setOpacity: (value) => ipcRenderer.invoke('set-opacity', value),
   hideOverlay: () => ipcRenderer.invoke('hide-overlay'),
-  focusWindow: () => ipcRenderer.send('focus-window'),
 
   // Mouse event forwarding for click-through
   setIgnoreMouseEvents: (ignore, options) => {
